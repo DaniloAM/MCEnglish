@@ -1,0 +1,443 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FFD0E2C81AE0255A000BF544 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD0E2C71AE0255A000BF544 /* main.m */; };
+		FFD0E2CB1AE0255A000BF544 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD0E2CA1AE0255A000BF544 /* AppDelegate.m */; };
+		FFD0E2CE1AE0255A000BF544 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD0E2CD1AE0255A000BF544 /* GameScene.m */; };
+		FFD0E2D01AE0255A000BF544 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FFD0E2CF1AE0255A000BF544 /* GameScene.sks */; };
+		FFD0E2D31AE0255A000BF544 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD0E2D21AE0255A000BF544 /* GameViewController.m */; };
+		FFD0E2D61AE0255A000BF544 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFD0E2D41AE0255A000BF544 /* Main.storyboard */; };
+		FFD0E2D81AE0255A000BF544 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFD0E2D71AE0255A000BF544 /* Images.xcassets */; };
+		FFD0E2DB1AE0255A000BF544 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFD0E2D91AE0255A000BF544 /* LaunchScreen.xib */; };
+		FFD0E2E71AE0255A000BF544 /* EngishTeachingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD0E2E61AE0255A000BF544 /* EngishTeachingTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FFD0E2E11AE0255A000BF544 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FFD0E2BA1AE0255A000BF544 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FFD0E2C11AE0255A000BF544;
+			remoteInfo = EngishTeaching;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FFD0E2C21AE0255A000BF544 /* EngishTeaching.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EngishTeaching.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFD0E2C61AE0255A000BF544 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FFD0E2C71AE0255A000BF544 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FFD0E2C91AE0255A000BF544 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FFD0E2CA1AE0255A000BF544 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FFD0E2CC1AE0255A000BF544 /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		FFD0E2CD1AE0255A000BF544 /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
+		FFD0E2CF1AE0255A000BF544 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		FFD0E2D11AE0255A000BF544 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		FFD0E2D21AE0255A000BF544 /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		FFD0E2D51AE0255A000BF544 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FFD0E2D71AE0255A000BF544 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		FFD0E2DA1AE0255A000BF544 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		FFD0E2E01AE0255A000BF544 /* EngishTeachingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EngishTeachingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFD0E2E51AE0255A000BF544 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FFD0E2E61AE0255A000BF544 /* EngishTeachingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EngishTeachingTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FFD0E2BF1AE0255A000BF544 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FFD0E2DD1AE0255A000BF544 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FFD0E2B91AE0255A000BF544 = {
+			isa = PBXGroup;
+			children = (
+				FFD0E2C41AE0255A000BF544 /* EngishTeaching */,
+				FFD0E2E31AE0255A000BF544 /* EngishTeachingTests */,
+				FFD0E2C31AE0255A000BF544 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FFD0E2C31AE0255A000BF544 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FFD0E2C21AE0255A000BF544 /* EngishTeaching.app */,
+				FFD0E2E01AE0255A000BF544 /* EngishTeachingTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FFD0E2C41AE0255A000BF544 /* EngishTeaching */ = {
+			isa = PBXGroup;
+			children = (
+				FFD0E2C91AE0255A000BF544 /* AppDelegate.h */,
+				FFD0E2CA1AE0255A000BF544 /* AppDelegate.m */,
+				FFD0E2CC1AE0255A000BF544 /* GameScene.h */,
+				FFD0E2CD1AE0255A000BF544 /* GameScene.m */,
+				FFD0E2CF1AE0255A000BF544 /* GameScene.sks */,
+				FFD0E2D11AE0255A000BF544 /* GameViewController.h */,
+				FFD0E2D21AE0255A000BF544 /* GameViewController.m */,
+				FFD0E2D41AE0255A000BF544 /* Main.storyboard */,
+				FFD0E2D71AE0255A000BF544 /* Images.xcassets */,
+				FFD0E2D91AE0255A000BF544 /* LaunchScreen.xib */,
+				FFD0E2C51AE0255A000BF544 /* Supporting Files */,
+			);
+			path = EngishTeaching;
+			sourceTree = "<group>";
+		};
+		FFD0E2C51AE0255A000BF544 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FFD0E2C61AE0255A000BF544 /* Info.plist */,
+				FFD0E2C71AE0255A000BF544 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FFD0E2E31AE0255A000BF544 /* EngishTeachingTests */ = {
+			isa = PBXGroup;
+			children = (
+				FFD0E2E61AE0255A000BF544 /* EngishTeachingTests.m */,
+				FFD0E2E41AE0255A000BF544 /* Supporting Files */,
+			);
+			path = EngishTeachingTests;
+			sourceTree = "<group>";
+		};
+		FFD0E2E41AE0255A000BF544 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FFD0E2E51AE0255A000BF544 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FFD0E2C11AE0255A000BF544 /* EngishTeaching */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FFD0E2EA1AE0255A000BF544 /* Build configuration list for PBXNativeTarget "EngishTeaching" */;
+			buildPhases = (
+				FFD0E2BE1AE0255A000BF544 /* Sources */,
+				FFD0E2BF1AE0255A000BF544 /* Frameworks */,
+				FFD0E2C01AE0255A000BF544 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EngishTeaching;
+			productName = EngishTeaching;
+			productReference = FFD0E2C21AE0255A000BF544 /* EngishTeaching.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FFD0E2DF1AE0255A000BF544 /* EngishTeachingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FFD0E2ED1AE0255A000BF544 /* Build configuration list for PBXNativeTarget "EngishTeachingTests" */;
+			buildPhases = (
+				FFD0E2DC1AE0255A000BF544 /* Sources */,
+				FFD0E2DD1AE0255A000BF544 /* Frameworks */,
+				FFD0E2DE1AE0255A000BF544 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FFD0E2E21AE0255A000BF544 /* PBXTargetDependency */,
+			);
+			name = EngishTeachingTests;
+			productName = EngishTeachingTests;
+			productReference = FFD0E2E01AE0255A000BF544 /* EngishTeachingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FFD0E2BA1AE0255A000BF544 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = RD;
+				TargetAttributes = {
+					FFD0E2C11AE0255A000BF544 = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					FFD0E2DF1AE0255A000BF544 = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = FFD0E2C11AE0255A000BF544;
+					};
+				};
+			};
+			buildConfigurationList = FFD0E2BD1AE0255A000BF544 /* Build configuration list for PBXProject "EngishTeaching" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FFD0E2B91AE0255A000BF544;
+			productRefGroup = FFD0E2C31AE0255A000BF544 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FFD0E2C11AE0255A000BF544 /* EngishTeaching */,
+				FFD0E2DF1AE0255A000BF544 /* EngishTeachingTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FFD0E2C01AE0255A000BF544 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFD0E2DB1AE0255A000BF544 /* LaunchScreen.xib in Resources */,
+				FFD0E2D81AE0255A000BF544 /* Images.xcassets in Resources */,
+				FFD0E2D01AE0255A000BF544 /* GameScene.sks in Resources */,
+				FFD0E2D61AE0255A000BF544 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FFD0E2DE1AE0255A000BF544 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FFD0E2BE1AE0255A000BF544 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFD0E2D31AE0255A000BF544 /* GameViewController.m in Sources */,
+				FFD0E2CB1AE0255A000BF544 /* AppDelegate.m in Sources */,
+				FFD0E2CE1AE0255A000BF544 /* GameScene.m in Sources */,
+				FFD0E2C81AE0255A000BF544 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FFD0E2DC1AE0255A000BF544 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFD0E2E71AE0255A000BF544 /* EngishTeachingTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FFD0E2E21AE0255A000BF544 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FFD0E2C11AE0255A000BF544 /* EngishTeaching */;
+			targetProxy = FFD0E2E11AE0255A000BF544 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FFD0E2D41AE0255A000BF544 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FFD0E2D51AE0255A000BF544 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FFD0E2D91AE0255A000BF544 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FFD0E2DA1AE0255A000BF544 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FFD0E2E81AE0255A000BF544 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		FFD0E2E91AE0255A000BF544 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FFD0E2EB1AE0255A000BF544 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = EngishTeaching/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FFD0E2EC1AE0255A000BF544 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = EngishTeaching/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		FFD0E2EE1AE0255A000BF544 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = EngishTeachingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EngishTeaching.app/EngishTeaching";
+			};
+			name = Debug;
+		};
+		FFD0E2EF1AE0255A000BF544 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = EngishTeachingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EngishTeaching.app/EngishTeaching";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FFD0E2BD1AE0255A000BF544 /* Build configuration list for PBXProject "EngishTeaching" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FFD0E2E81AE0255A000BF544 /* Debug */,
+				FFD0E2E91AE0255A000BF544 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FFD0E2EA1AE0255A000BF544 /* Build configuration list for PBXNativeTarget "EngishTeaching" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FFD0E2EB1AE0255A000BF544 /* Debug */,
+				FFD0E2EC1AE0255A000BF544 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FFD0E2ED1AE0255A000BF544 /* Build configuration list for PBXNativeTarget "EngishTeachingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FFD0E2EE1AE0255A000BF544 /* Debug */,
+				FFD0E2EF1AE0255A000BF544 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FFD0E2BA1AE0255A000BF544 /* Project object */;
+}
