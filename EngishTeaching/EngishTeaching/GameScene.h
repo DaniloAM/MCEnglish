@@ -7,6 +7,7 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "DictionaryScene.h"
 
 @interface GameScene : SKScene <SKPhysicsContactDelegate>
 

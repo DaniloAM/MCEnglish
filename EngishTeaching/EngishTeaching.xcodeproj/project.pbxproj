@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5BA7E08F1AE03443003D2E3D /* DictionaryScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5BA7E08C1AE03443003D2E3D /* DictionaryScene.sks */; };
+		5BA7E0901AE03443003D2E3D /* DictionaryScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA7E08E1AE03443003D2E3D /* DictionaryScene.m */; };
+		5BA7E0951AE03567003D2E3D /* Word.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA7E0921AE03567003D2E3D /* Word.m */; };
+		5BA7E0961AE03567003D2E3D /* Dictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA7E0941AE03567003D2E3D /* Dictionary.m */; };
 		FFD0E2C81AE0255A000BF544 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD0E2C71AE0255A000BF544 /* main.m */; };
 		FFD0E2CB1AE0255A000BF544 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD0E2CA1AE0255A000BF544 /* AppDelegate.m */; };
 		FFD0E2D31AE0255A000BF544 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD0E2D21AE0255A000BF544 /* GameViewController.m */; };
@@ -32,6 +36,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5BA7E08C1AE03443003D2E3D /* DictionaryScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = DictionaryScene.sks; sourceTree = "<group>"; };
+		5BA7E08D1AE03443003D2E3D /* DictionaryScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictionaryScene.h; sourceTree = "<group>"; };
+		5BA7E08E1AE03443003D2E3D /* DictionaryScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DictionaryScene.m; sourceTree = "<group>"; };
+		5BA7E0911AE03567003D2E3D /* Word.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Word.h; sourceTree = "<group>"; };
+		5BA7E0921AE03567003D2E3D /* Word.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Word.m; sourceTree = "<group>"; };
+		5BA7E0931AE03567003D2E3D /* Dictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dictionary.h; sourceTree = "<group>"; };
+		5BA7E0941AE03567003D2E3D /* Dictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dictionary.m; sourceTree = "<group>"; };
+		5BA7E0971AE042AC003D2E3D /* DictionaryDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictionaryDelegate.h; sourceTree = "<group>"; };
 		FFD0E2C21AE0255A000BF544 /* EngishTeaching.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EngishTeaching.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFD0E2C61AE0255A000BF544 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FFD0E2C71AE0255A000BF544 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -100,6 +112,14 @@
 				FFD0E2F61AE03007000BF544 /* GameScene.h */,
 				FFD0E2F71AE03007000BF544 /* GameScene.m */,
 				FFD0E2F81AE03007000BF544 /* GameScene.sks */,
+				5BA7E08C1AE03443003D2E3D /* DictionaryScene.sks */,
+				5BA7E08D1AE03443003D2E3D /* DictionaryScene.h */,
+				5BA7E08E1AE03443003D2E3D /* DictionaryScene.m */,
+				5BA7E0911AE03567003D2E3D /* Word.h */,
+				5BA7E0921AE03567003D2E3D /* Word.m */,
+				5BA7E0931AE03567003D2E3D /* Dictionary.h */,
+				5BA7E0941AE03567003D2E3D /* Dictionary.m */,
+				5BA7E0971AE042AC003D2E3D /* DictionaryDelegate.h */,
 				FFD0E2FE1AE0302F000BF544 /* TemplateCidade.001.png */,
 				FFD0E2FC1AE03027000BF544 /* DarkCharacter.png */,
 				FFD0E2D41AE0255A000BF544 /* Main.storyboard */,
@@ -222,6 +242,7 @@
 				FFD0E2D81AE0255A000BF544 /* Images.xcassets in Resources */,
 				FFD0E2D61AE0255A000BF544 /* Main.storyboard in Resources */,
 				FFD0E2FD1AE03027000BF544 /* DarkCharacter.png in Resources */,
+				5BA7E08F1AE03443003D2E3D /* DictionaryScene.sks in Resources */,
 				FFD0E2FF1AE0302F000BF544 /* TemplateCidade.001.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,9 +262,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFD0E2D31AE0255A000BF544 /* GameViewController.m in Sources */,
+				5BA7E0901AE03443003D2E3D /* DictionaryScene.m in Sources */,
 				FFD0E2CB1AE0255A000BF544 /* AppDelegate.m in Sources */,
+				5BA7E0961AE03567003D2E3D /* Dictionary.m in Sources */,
 				FFD0E2FA1AE03007000BF544 /* GameScene.m in Sources */,
 				FFD0E2C81AE0255A000BF544 /* main.m in Sources */,
+				5BA7E0951AE03567003D2E3D /* Word.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

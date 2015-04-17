@@ -8,12 +8,32 @@
 
 #import "GameScene.h"
 
+@implementation SKScene (Unarchive)
+
++ (instancetype)unarchiveFromFile:(NSString *)file {
+    /* Retrieve scene file path from the application bundle */
+    NSString *nodePath = [[NSBundle mainBundle] pathForResource:file ofType:@"sks"];
+    /* Unarchive the file to an SKScene object */
+    NSData *data = [NSData dataWithContentsOfFile:nodePath
+                                          options:NSDataReadingMappedIfSafe
+                                            error:nil];
+    NSKeyedUnarchiver *arch = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+    [arch setClass:self forClassName:@"SKScene"];
+    SKScene *scene = [arch decodeObjectForKey:NSKeyedArchiveRootObjectKey];
+    [arch finishDecoding];
+
+    return scene;
+}
+
+@end
+
 static const uint32_t characterCategory =  0x1 << 1;
 static const uint32_t bodyCategory =  0x1 << 2;
 
-@implementation GameScene
-
-
+@implementation GameScene{
+    BOOL showDic;
+    DictionaryScene *dicScene;
+}
 
 -(void)didMoveToView:(SKView *)view {
     /* Setup your scene here */
@@ -40,13 +60,13 @@ static const uint32_t bodyCategory =  0x1 << 2;
         
         body.collisionBitMask = bodyCategory;
         body.contactTestBitMask = characterCategory;
-        
+
         body.pinned = true;
         
         body.dynamic = false;
         
         [node setPhysicsBody:body];
-    
+        [node setTexture:nil];
     }
     
     
@@ -57,6 +77,25 @@ static const uint32_t bodyCategory =  0x1 << 2;
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     /* Called when a touch begins */
+
+    if (showDic) {
+        showDic = false;
+        [dicScene removeFromParent];
+        return;
+    }
+
+    for (UITouch *touch in touches) {
+        if ([[[self nodeAtPoint:[touch locationInNode:self]] name] isEqual:@"btnDictionary"]) {
+
+            dicScene = [DictionaryScene unarchiveFromFile:@"DictionaryScene"];
+            [dicScene startScene];
+            [dicScene setSize:self.size];
+            [dicScene setPhysicsBody:nil];
+            [self addChild:dicScene];
+            showDic = true;
+            return;
+        }
+    }
     
     [[self character] runAction:[SKAction moveTo:CGPointMake(self.size.width/2, self.size.height/2) duration:0.1]];
     
