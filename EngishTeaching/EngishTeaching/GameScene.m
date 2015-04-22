@@ -39,9 +39,9 @@ static const uint32_t bodyCategory =  0x1 << 2;
 -(void)didMoveToView:(SKView *)view {
 #warning Teste para a cena do restaurante, apagar depois
 //    dicScene = [DictionaryScene unarchiveFromFile:@"DictionaryScene"];
-    [self.viewController setRestaurantScene:nil];
-    [self.viewController setCurrentScene:nil];
-    [self.view presentScene:nil];
+    //[self.viewController setRestaurantScene:nil];
+    //[self.viewController setCurrentScene:nil];
+    //[self.view presentScene:nil];
 
     /* Setup your scene here */
     
@@ -78,9 +78,10 @@ static const uint32_t bodyCategory =  0x1 << 2;
     
     
     [[self character] setPosition:CGPointMake(self.size.width/2, self.size.height/2)];
-<<<<<<< HEAD
     
-    //[[[self character] position]]
+    
+    //GENERATION TEST *********************
+    
     CGPoint point = [self convertPoint:[[self character] position] toNode:[self base]];
     
     NSLog(@"%f %f", point.x, point.y);
@@ -95,8 +96,6 @@ static const uint32_t bodyCategory =  0x1 << 2;
     
     [generator startGeneratingNPC];
     
-=======
->>>>>>> origin/master
 }
 
 
@@ -112,25 +111,8 @@ static const uint32_t bodyCategory =  0x1 << 2;
 
     UITouch *touch = [[event allTouches] anyObject];
     CGPoint location = [touch locationInNode:self];
-<<<<<<< HEAD
-    
-    CGPoint fundoLocation = [touch locationInNode:self.base];
-    
-    if([[[self base] nodesAtPoint:fundoLocation] count] > 0) {
-        
-        for(SKNode *node in [[self base] nodesAtPoint:fundoLocation]) {
-            
-            if([node.name isEqualToString:@"npc"]) {
-                //TALK ACTION
-                //***********
-            }
-            
-        }
-        
-=======
 
     if ([self checkIfDicWasTouched:touch inLocation:location]) {
->>>>>>> origin/master
         return;
     }
 
@@ -150,17 +132,23 @@ static const uint32_t bodyCategory =  0x1 << 2;
 
 -(void)didBeginContact:(SKPhysicsContact *)contact{
 
+    SKNode *nodeA = [[contact bodyA] node];
+    SKNode *nodeB = [[contact bodyB] node];
     
     NSString *nameA = [[[contact bodyA] node] name];
     NSString *nameB = [[[contact bodyB] node] name];
     
     if([nameA isEqualToString:@"npc"]) {
         
-        NSLog(@"Contact! NPC");
         
         if([nameB isEqualToString:@"character"]) {
             //TALK ACTION
             //***********
+            [nodeA removeAllActions];
+            [nodeB removeAllActions];
+            NSLog(@"NPC TALK");
+            
+            
         }
         
         else [[[contact bodyA] node] removeFromParent];
@@ -170,11 +158,13 @@ static const uint32_t bodyCategory =  0x1 << 2;
     
     else if([nameB isEqualToString:@"npc"]) {
         
-        NSLog(@"Contact! NPC");
         
         if([nameA isEqualToString:@"character"]) {
             //TALK ACTION
             //***********
+            [nodeA removeAllActions];
+            [nodeB removeAllActions];
+            NSLog(@"NPC TALK");
         }
         
         else [[[contact bodyB] node] removeFromParent];
@@ -187,9 +177,7 @@ static const uint32_t bodyCategory =  0x1 << 2;
     [[self character] runAction:[SKAction moveTo:CGPointMake(self.size.width/2, self.size.height/2) duration:0.1]];
 }
 
-<<<<<<< HEAD
-
-=======
+    
 /**
  Mostra cena do dicionário como filha da cena principal.
  
@@ -239,11 +227,29 @@ static const uint32_t bodyCategory =  0x1 << 2;
     [[self character] runAction:[SKAction moveTo:CGPointMake(self.size.width/2, self.size.height/2) duration:0.1]];
 
     CGPoint fundoLocation = [touch locationInNode:self.base];
-
+    
     if([[[self base] nodesAtPoint:fundoLocation] count] > 0) {
-        return false;
+        
+        BOOL notMove = true;
+        
+        for(SKNode *node in [[self base] nodesAtPoint:fundoLocation]) {
+            
+            if([node.name isEqualToString:@"npc"]) {
+                notMove = false;
+                
+                NSLog(@"NPC TALK");
+                //TALK ACTION
+                //***********
+            }
+            
+        }
+        
+        if(notMove) {
+            return false;
+        }
     }
 
+    
     CGPoint position = CGPointMake(521, 400);
     CGPoint movePoint = CGPointMake(location.x - position.x , location.y - position.y);
     CGPoint basePosition = [[self base] position];
@@ -257,5 +263,4 @@ static const uint32_t bodyCategory =  0x1 << 2;
     [[self base] runAction:[SKAction moveTo:basePosition duration:distance * 0.002]];
     return true;
 }
->>>>>>> origin/master
 @end
