@@ -7,6 +7,7 @@
 //
 
 #import "GameScene.h"
+#import "GameViewController.h"
 
 @implementation SKScene (Unarchive)
 
@@ -36,6 +37,12 @@ static const uint32_t bodyCategory =  0x1 << 2;
 }
 
 -(void)didMoveToView:(SKView *)view {
+#warning Teste para a cena do restaurante, apagar depois
+//    dicScene = [DictionaryScene unarchiveFromFile:@"DictionaryScene"];
+    [self.viewController setRestaurantScene:nil];
+    [self.viewController setCurrentScene:nil];
+    [self.view presentScene:nil];
+
     /* Setup your scene here */
     
     self.physicsWorld.contactDelegate = self;
@@ -71,7 +78,6 @@ static const uint32_t bodyCategory =  0x1 << 2;
     
     
     [[self character] setPosition:CGPointMake(self.size.width/2, self.size.height/2)];
-    
 }
 
 
@@ -88,33 +94,13 @@ static const uint32_t bodyCategory =  0x1 << 2;
     UITouch *touch = [[event allTouches] anyObject];
     CGPoint location = [touch locationInNode:self];
 
-        //Checa se o botão do dicionário foi tocado, caso verdadeiro, mostra o dicionário na tela
-    if ([[[self nodeAtPoint:[touch locationInNode:self]] name] isEqual:@"btnDictionary"]) {
-        [self showDictionarySceneInAnswerMode:NO];
+    if ([self checkIfDicWasTouched:touch inLocation:location]) {
         return;
     }
 
-    [[self character] runAction:[SKAction moveTo:CGPointMake(self.size.width/2, self.size.height/2) duration:0.1]];
-    
-    CGPoint fundoLocation = [touch locationInNode:self.base];
-    
-    if([[[self base] nodesAtPoint:fundoLocation] count] > 0) {
+    if (![self moveCharacterTo:touch andLocation:location]) {
         return;
     }
-    
-    
-    CGPoint position = CGPointMake(521, 400);
-    CGPoint movePoint = CGPointMake(location.x - position.x , location.y - position.y);
-    CGPoint basePosition = [[self base] position];
-    
-    
-    basePosition.x -= movePoint.x;
-    basePosition.y -= movePoint.y;
-
-    double distance = sqrt((movePoint.x * movePoint.x) + (movePoint.y * movePoint.y));
-
-    [[self base] runAction:[SKAction moveTo:basePosition duration:distance * 0.002]];
-    
 }
 
 -(void)update:(CFTimeInterval)currentTime {
@@ -154,4 +140,51 @@ static const uint32_t bodyCategory =  0x1 << 2;
 
 }
 
+/**
+ Verifica se o botão do dicionário foi tocado
+ 
+ @param touch - toque na tela
+ @param location - posição do toque na tela
+ 
+ @return verdadeiro se o botão foi tocado, falso caso contrário
+ */
+-(BOOL) checkIfDicWasTouched:(UITouch*) touch inLocation:(CGPoint) location{
+        //Checa se o botão do dicionário foi tocado, caso verdadeiro, mostra o dicionário na tela
+    if ([[[self nodeAtPoint:[touch locationInNode:self]] name] isEqual:@"btnDictionary"]) {
+        [self showDictionarySceneInAnswerMode:NO];
+        return true;
+    }
+    return false;
+}
+
+/**
+ Move o personagem para a posição do toque
+ 
+ @param touch - toque na tela
+ @param location - posição do toque na tela
+
+ @return verdadeiro se foi possível mover o personagem, falso caso contrário
+ */
+-(BOOL) moveCharacterTo:(UITouch*) touch andLocation:(CGPoint) location{
+    [[self character] runAction:[SKAction moveTo:CGPointMake(self.size.width/2, self.size.height/2) duration:0.1]];
+
+    CGPoint fundoLocation = [touch locationInNode:self.base];
+
+    if([[[self base] nodesAtPoint:fundoLocation] count] > 0) {
+        return false;
+    }
+
+    CGPoint position = CGPointMake(521, 400);
+    CGPoint movePoint = CGPointMake(location.x - position.x , location.y - position.y);
+    CGPoint basePosition = [[self base] position];
+
+
+    basePosition.x -= movePoint.x;
+    basePosition.y -= movePoint.y;
+
+    double distance = sqrt((movePoint.x * movePoint.x) + (movePoint.y * movePoint.y));
+
+    [[self base] runAction:[SKAction moveTo:basePosition duration:distance * 0.002]];
+    return true;
+}
 @end

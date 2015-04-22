@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B01256A1AE8279A00580CD6 /* RestaurantScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B0125691AE8279A00580CD6 /* RestaurantScene.m */; };
 		5B9B85B61AE812B600940944 /* Restaurant.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5B9B85B51AE812B600940944 /* Restaurant.sks */; };
-		5B9B85B91AE8132000940944 /* RestaurantScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9B85B81AE8132000940944 /* RestaurantScene.m */; };
 		5BA7E08F1AE03443003D2E3D /* DictionaryScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5BA7E08C1AE03443003D2E3D /* DictionaryScene.sks */; };
 		5BA7E0901AE03443003D2E3D /* DictionaryScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA7E08E1AE03443003D2E3D /* DictionaryScene.m */; };
 		5BA7E0951AE03567003D2E3D /* Word.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA7E0921AE03567003D2E3D /* Word.m */; };
@@ -38,9 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5B0125681AE8279A00580CD6 /* RestaurantScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantScene.h; sourceTree = "<group>"; };
+		5B0125691AE8279A00580CD6 /* RestaurantScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantScene.m; sourceTree = "<group>"; };
 		5B9B85B51AE812B600940944 /* Restaurant.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Restaurant.sks; sourceTree = "<group>"; };
-		5B9B85B71AE8132000940944 /* RestaurantScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantScene.h; sourceTree = "<group>"; };
-		5B9B85B81AE8132000940944 /* RestaurantScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantScene.m; sourceTree = "<group>"; };
 		5BA7E08C1AE03443003D2E3D /* DictionaryScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = DictionaryScene.sks; sourceTree = "<group>"; };
 		5BA7E08D1AE03443003D2E3D /* DictionaryScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictionaryScene.h; sourceTree = "<group>"; };
 		5BA7E08E1AE03443003D2E3D /* DictionaryScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DictionaryScene.m; sourceTree = "<group>"; };
@@ -118,8 +118,8 @@
 				FFD0E2F71AE03007000BF544 /* GameScene.m */,
 				FFD0E2F81AE03007000BF544 /* GameScene.sks */,
 				5BA7E08C1AE03443003D2E3D /* DictionaryScene.sks */,
-				5B9B85B71AE8132000940944 /* RestaurantScene.h */,
-				5B9B85B81AE8132000940944 /* RestaurantScene.m */,
+				5B0125681AE8279A00580CD6 /* RestaurantScene.h */,
+				5B0125691AE8279A00580CD6 /* RestaurantScene.m */,
 				5B9B85B51AE812B600940944 /* Restaurant.sks */,
 				5BA7E08D1AE03443003D2E3D /* DictionaryScene.h */,
 				5BA7E08E1AE03443003D2E3D /* DictionaryScene.m */,
@@ -273,7 +273,7 @@
 				FFD0E2D31AE0255A000BF544 /* GameViewController.m in Sources */,
 				5BA7E0901AE03443003D2E3D /* DictionaryScene.m in Sources */,
 				FFD0E2CB1AE0255A000BF544 /* AppDelegate.m in Sources */,
-				5B9B85B91AE8132000940944 /* RestaurantScene.m in Sources */,
+				5B01256A1AE8279A00580CD6 /* RestaurantScene.m in Sources */,
 				5BA7E0961AE03567003D2E3D /* Dictionary.m in Sources */,
 				FFD0E2FA1AE03007000BF544 /* GameScene.m in Sources */,
 				FFD0E2C81AE0255A000BF544 /* main.m in Sources */,

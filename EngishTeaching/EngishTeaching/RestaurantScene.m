@@ -10,4 +10,16 @@
 
 @implementation RestaurantScene
 
+-(BOOL)moveCharacterTo:(UITouch *)touch andLocation:(CGPoint)location{
+
+    CGPoint position = [[self character] position];
+
+    CGPoint movePoint = CGPointMake(location.x - position.x , location.y - position.y);
+    double distance = sqrt((movePoint.x * movePoint.x) + (movePoint.y * movePoint.y));
+
+    [[self character] runAction:[SKAction moveTo:location duration:distance * 0.002]];
+
+    return true;
+}
+
 @end
