@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>9D8C9D3D-C7B2-4090-8F43-500A24D5E32C</string>
 	<key>IDESourceControlProjectName</key>
-	<string>EngishTeaching</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>7D360B2EA904B69337141FAE3EBC4C24D2418E16</key>
 		<string>https://github.com/DaniloAM/MCEnglish.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>EngishTeaching/EngishTeaching.xcodeproj</string>
+	<string>EngishTeaching/EngishTeaching.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>7D360B2EA904B69337141FAE3EBC4C24D2418E16</key>

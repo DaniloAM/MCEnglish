@@ -7,8 +7,11 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "NPCGenerator.h"
 
-@interface GameScene : SKScene <SKPhysicsContactDelegate>
+@interface GameScene : SKScene <SKPhysicsContactDelegate> {
+    NPCGenerator *generator;
+}
 
 @property SKSpriteNode *base;
 @property SKSpriteNode *character;
