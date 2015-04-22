@@ -16,4 +16,6 @@
 @property SKScene *mainScene;
 @property SKScene *restaurantScene;
 
+-(void) showRestaurant;
+
 @end

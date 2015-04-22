@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5B01256A1AE8279A00580CD6 /* RestaurantScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B0125691AE8279A00580CD6 /* RestaurantScene.m */; };
-		5B9B85B61AE812B600940944 /* Restaurant.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5B9B85B51AE812B600940944 /* Restaurant.sks */; };
+		5B9B85B61AE812B600940944 /* RestaurantScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5B9B85B51AE812B600940944 /* RestaurantScene.sks */; };
 		5BA7E08F1AE03443003D2E3D /* DictionaryScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5BA7E08C1AE03443003D2E3D /* DictionaryScene.sks */; };
 		5BA7E0901AE03443003D2E3D /* DictionaryScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA7E08E1AE03443003D2E3D /* DictionaryScene.m */; };
 		5BA7E0951AE03567003D2E3D /* Word.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA7E0921AE03567003D2E3D /* Word.m */; };
@@ -40,7 +40,7 @@
 /* Begin PBXFileReference section */
 		5B0125681AE8279A00580CD6 /* RestaurantScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantScene.h; sourceTree = "<group>"; };
 		5B0125691AE8279A00580CD6 /* RestaurantScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantScene.m; sourceTree = "<group>"; };
-		5B9B85B51AE812B600940944 /* Restaurant.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Restaurant.sks; sourceTree = "<group>"; };
+		5B9B85B51AE812B600940944 /* RestaurantScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RestaurantScene.sks; sourceTree = "<group>"; };
 		5BA7E08C1AE03443003D2E3D /* DictionaryScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = DictionaryScene.sks; sourceTree = "<group>"; };
 		5BA7E08D1AE03443003D2E3D /* DictionaryScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictionaryScene.h; sourceTree = "<group>"; };
 		5BA7E08E1AE03443003D2E3D /* DictionaryScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DictionaryScene.m; sourceTree = "<group>"; };
@@ -120,7 +120,7 @@
 				5BA7E08C1AE03443003D2E3D /* DictionaryScene.sks */,
 				5B0125681AE8279A00580CD6 /* RestaurantScene.h */,
 				5B0125691AE8279A00580CD6 /* RestaurantScene.m */,
-				5B9B85B51AE812B600940944 /* Restaurant.sks */,
+				5B9B85B51AE812B600940944 /* RestaurantScene.sks */,
 				5BA7E08D1AE03443003D2E3D /* DictionaryScene.h */,
 				5BA7E08E1AE03443003D2E3D /* DictionaryScene.m */,
 				5BA7E0911AE03567003D2E3D /* Word.h */,
@@ -249,7 +249,7 @@
 				FFD0E2DB1AE0255A000BF544 /* LaunchScreen.xib in Resources */,
 				FFD0E2D81AE0255A000BF544 /* Images.xcassets in Resources */,
 				FFD0E2D61AE0255A000BF544 /* Main.storyboard in Resources */,
-				5B9B85B61AE812B600940944 /* Restaurant.sks in Resources */,
+				5B9B85B61AE812B600940944 /* RestaurantScene.sks in Resources */,
 				FFD0E2FD1AE03027000BF544 /* DarkCharacter.png in Resources */,
 				5BA7E08F1AE03443003D2E3D /* DictionaryScene.sks in Resources */,
 				FFD0E2FF1AE0302F000BF544 /* TemplateCidade.001.png in Resources */,

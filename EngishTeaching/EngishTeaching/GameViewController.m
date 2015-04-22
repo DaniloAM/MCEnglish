@@ -8,6 +8,7 @@
 
 #import "GameViewController.h"
 #import "GameScene.h"
+#import "RestaurantScene.h"
 
 @implementation SKScene (Unarchive)
 
@@ -48,6 +49,7 @@
     //Set the properties
     [self setMainScene:scene];
     [self setCurrentScene:scene];
+    [scene setViewController:self];
 
     // Present the scene.
     [skView presentScene:scene];
@@ -75,6 +77,22 @@
 
 - (BOOL)prefersStatusBarHidden {
     return YES;
+}
+
+-(void) showRestaurant{
+        // Configure the view.
+    SKView * skView = (SKView *)self.view;
+ 
+        // Create and configure the scene.
+    RestaurantScene *scene = [RestaurantScene unarchiveFromFile:@"RestaurantScene"];
+    scene.scaleMode = SKSceneScaleModeAspectFill;
+
+        //Set the properties
+    [self setRestaurantScene:scene];
+    [self setCurrentScene:scene];
+
+        // Present the scene.
+    [skView presentScene:scene];
 }
 
 @end
