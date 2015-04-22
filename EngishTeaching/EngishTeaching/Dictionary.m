@@ -10,6 +10,9 @@
 
 @implementation Dictionary
 
+/**
+ Retorna a instancia única do dicionário
+ */
 + (Dictionary *) sharedStore
 {
     static Dictionary *sharedStore = nil;
@@ -20,6 +23,9 @@
     return sharedStore;
 }
 
+/**
+ Inicia o dicionario, chamando o metodo loadWords
+ */
 -(instancetype)init{
     self = [super init];
     if (self) {
@@ -64,8 +70,23 @@
 #warning O ideal é inicializar lendo o conteúdo a partir de um arquivo de texto, porém a fim de teste estou iniciando estáticamente
     Word *w001 = [[Word alloc] initWithOriginal:@"Hello" andMeaning:@"Olá"];
     Word *w002 = [[Word alloc] initWithOriginal:@"Name" andMeaning:@"Nome"];
+    Word *w003 = [[Word alloc] initWithOriginal:@"Food" andMeaning:@"Comida"];
 
-    [self setWords:[[NSMutableArray alloc] initWithObjects:w001, w002, nil]];
+    [self setWords:[[NSMutableArray alloc] initWithObjects:w001, w002, w003,nil]];
+    [self sortWordsArray];
+}
+
+/**
+ Organiza o array de palavras em ordem alfabética
+ */
+-(void) sortWordsArray{
+    NSArray *sortedArray = [[self words] sortedArrayUsingComparator:^NSComparisonResult(id a, id b){
+        NSString *w1 = [(Word*) a original];
+        NSString *w2 = [(Word*)b original];
+        return [w1 compare:w2];
+    }];
+
+    [self setWords:[[NSMutableArray alloc] initWithArray:sortedArray]];
 }
 
 @end

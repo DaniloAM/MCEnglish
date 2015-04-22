@@ -9,7 +9,7 @@
 #import <SpriteKit/SpriteKit.h>
 #import "DictionaryScene.h"
 
-@interface GameScene : SKScene <SKPhysicsContactDelegate>
+@interface GameScene : SKScene <SKPhysicsContactDelegate, DictionaryDelegate>
 
 @property SKSpriteNode *base;
 @property SKSpriteNode *character;

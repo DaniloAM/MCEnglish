@@ -78,30 +78,23 @@ static const uint32_t bodyCategory =  0x1 << 2;
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     /* Called when a touch begins */
 
+        //Checa se o dicionário está sendo mostrado na tela, caso verdadeiro, remove o dicionário da tela
     if (showDic) {
         showDic = false;
         [dicScene removeFromParent];
         return;
     }
 
-    for (UITouch *touch in touches) {
-        if ([[[self nodeAtPoint:[touch locationInNode:self]] name] isEqual:@"btnDictionary"]) {
-
-            dicScene = [DictionaryScene unarchiveFromFile:@"DictionaryScene"];
-            [dicScene startScene];
-            [dicScene setSize:self.size];
-            [dicScene setPhysicsBody:nil];
-            [self addChild:dicScene];
-            showDic = true;
-            return;
-        }
-    }
-    
-    [[self character] runAction:[SKAction moveTo:CGPointMake(self.size.width/2, self.size.height/2) duration:0.1]];
-    
     UITouch *touch = [[event allTouches] anyObject];
-    
     CGPoint location = [touch locationInNode:self];
+
+        //Checa se o botão do dicionário foi tocado, caso verdadeiro, mostra o dicionário na tela
+    if ([[[self nodeAtPoint:[touch locationInNode:self]] name] isEqual:@"btnDictionary"]) {
+        [self showDictionarySceneInAnswerMode:NO];
+        return;
+    }
+
+    [[self character] runAction:[SKAction moveTo:CGPointMake(self.size.width/2, self.size.height/2) duration:0.1]];
     
     CGPoint fundoLocation = [touch locationInNode:self.base];
     
@@ -133,14 +126,32 @@ static const uint32_t bodyCategory =  0x1 << 2;
     }
 }
 
-
-
 -(void)didBeginContact:(SKPhysicsContact *)contact{
     
     NSLog(@"Contact!");
     
     [[self base] removeAllActions];
     [[self character] runAction:[SKAction moveTo:CGPointMake(self.size.width/2, self.size.height/2) duration:0.1]];
+}
+
+/**
+ Mostra cena do dicionário como filha da cena principal.
+ 
+ @param isAnswer - Define se o dicionário será usado para definir uma resposta para um NPC ou se será somente consulta
+ */
+-(void) showDictionarySceneInAnswerMode:(BOOL)isAnswer{
+    dicScene = [DictionaryScene unarchiveFromFile:@"DictionaryScene"];
+    [dicScene startScene];
+    [dicScene setSize:self.size];
+    [dicScene setPhysicsBody:nil];
+    [dicScene setAnswerMode:isAnswer];
+    [dicScene setDictionaryDelegate:self];
+    [self addChild:dicScene];
+    showDic = true;
+}
+
+-(void)chosenWord:(Word *)word{
+
 }
 
 @end

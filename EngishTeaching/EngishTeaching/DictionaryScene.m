@@ -13,14 +13,19 @@
     Dictionary *dic;
 }
 
+/**
+ Inicia a cena do dicionário, chamando o método startScene
+ */
 -(instancetype)init{
     if (self) {
-        [self setBackgroundColor:[UIColor redColor]];
         [self startScene];
     }
     return self;
 }
 
+/**
+ Inicializa a cena, carregando todas as palavras do dicionário e mostrando-as nos SKLabelNodes
+ */
 -(void) startScene{
 //    lblWords = (SKLabelNode*)[self childNodeWithName:@"lblWords"];
 
@@ -37,15 +42,19 @@
 
     [dic setWordAsKnown:@"Name"];
     [dic setWordAsKnown:@"Hello"];
+//    [dic setWordAsKnown:@"Food"];
 
 
     int i=0;
     for (Word *word in [dic words]) {
+        SKLabelNode *node = [lblWords objectAtIndex:i];
         if ([word isKnown]) {
-            SKLabelNode *node = [lblWords objectAtIndex:i];
             [node setText: [NSString stringWithFormat:@"%@ - %@", [word original], [word meaning]]];
-            i++;
         }
+        else{
+            [node setText: [NSString stringWithFormat:@"???????? - ????????"]];
+        }
+        i++;
     }
 
     for (; i<14; i++) {
@@ -54,6 +63,12 @@
     }
 }
 
+/**
+ Metodo herdado, recebe um toque e o utiliza para definir qual palavra foi escolhida pelo player,
+ chamando o método chosenWords do delegate.
+ 
+ Se não estiver no answerMode, ou seja, está no modo de consulta, somente retorna nulo.
+ */
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     if (![self answerMode]) {
         return;
@@ -61,9 +76,13 @@
     for (UITouch *touch in touches) {
         SKLabelNode *node = (SKLabelNode*)[self nodeAtPoint:[touch locationInNode:self.parent]];
         int index = [lblWords indexOfObject:node];
-
         if (index >= 0 && index <= [lblWords count]) {
-            [[self dictionaryDelegate] chosenWord:[[dic words] objectAtIndex:index]];
+            if (index >= 0 && index <= [[dic words] count]) {
+                if ([[[dic words] objectAtIndex:index] isKnown]) {
+                    [node setFontColor:[UIColor redColor]];
+                    [[self dictionaryDelegate] chosenWord:[[dic words] objectAtIndex:index]];
+                }
+            }
         }
     }
 }
