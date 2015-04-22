@@ -11,4 +11,9 @@
 
 @interface GameViewController : UIViewController
 
+@property SKScene *currentScene;
+
+@property SKScene *mainScene;
+@property SKScene *restaurantScene;
+
 @end
