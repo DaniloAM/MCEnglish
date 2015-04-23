@@ -41,6 +41,7 @@ static const uint32_t bodyCategory =  0x1 << 2;
     
     self.physicsWorld.contactDelegate = self;
     
+    [self setTextBox:(SKLabelNode*)[self childNodeWithName:@"textBox"]];
     [self setBase:(SKSpriteNode*)[self childNodeWithName:@"fundo"]];
     [self setCharacter:(SKSpriteNode*)[self childNodeWithName:@"character"]];
     
@@ -80,7 +81,7 @@ static const uint32_t bodyCategory =  0x1 << 2;
     
     NSLog(@"%f %f", point.x, point.y);
     
-    generator = [[NPCGenerator alloc] initWithGenerationType:GTCityType spawnRate:2.0 inPosition:CGPointMake(-250, -227) atNode:[self base]];
+    generator = [[NPCGenerator alloc] initWithGenerationType:GTCityType spawnRate:1.0 inPosition:CGPointMake(-250, -227) atNode:[self base]];
     
     NPCFile *file1 = [[NPCFile alloc] initWithTextureName:@"LightCharacter.png" andPictureName:@"LightCharacter.png" withGender:1];
     
@@ -142,9 +143,13 @@ static const uint32_t bodyCategory =  0x1 << 2;
             //***********
             [nodeA removeAllActions];
             [nodeB removeAllActions];
-            NSLog(@"NPC TALK");
             
+            NPC *npc = (NPC *)nodeA;
             
+            [[self textBox] setText:[[npc chain] line]];
+            
+#warning test-olny
+            [nodeA removeFromParent];
         }
         
         else [[[contact bodyA] node] removeFromParent];
@@ -160,7 +165,13 @@ static const uint32_t bodyCategory =  0x1 << 2;
             //***********
             [nodeA removeAllActions];
             [nodeB removeAllActions];
-            NSLog(@"NPC TALK");
+            
+            NPC *npc = (NPC *)nodeB;
+            
+            [[self textBox] setText:[[npc chain] line]];
+            
+#warning test-olny
+            [nodeB removeFromParent];
         }
         
         else [[[contact bodyB] node] removeFromParent];
@@ -232,6 +243,10 @@ static const uint32_t bodyCategory =  0x1 << 2;
             
             if([node.name isEqualToString:@"npc"]) {
                 notMove = false;
+                
+                NPC *npc = (NPC *)node;
+                
+                [[self textBox] setText:[[npc chain] line]];
                 
                 NSLog(@"NPC TALK");
                 //TALK ACTION

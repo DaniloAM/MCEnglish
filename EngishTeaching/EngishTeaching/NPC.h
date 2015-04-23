@@ -15,6 +15,7 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "LineChain.h"
 
 @interface NPC : SKSpriteNode
 
@@ -27,6 +28,7 @@ typedef enum CharacterTypes {
 
 @property CharacterTypes types;
 
+@property LineChain *chain;
 @property SKTexture *characterPicture;
 @property int characterType;
 @property NSMutableArray *characterLines;

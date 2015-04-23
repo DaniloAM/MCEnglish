@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "NPC.h"
 #import "NPCFile.h"
+#import "CharacterLines.h"
 
 @import CoreGraphics;
 

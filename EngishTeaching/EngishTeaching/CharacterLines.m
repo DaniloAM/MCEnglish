@@ -7,66 +7,148 @@
 //
 
 #import "CharacterLines.h"
+#import "NPC.h"
 #import "LineChain.h"
 
 @implementation CharacterLines
 
--(NSMutableArray *)lineChainsForCity {
+-(LineChain *)lineChainForCityWithInteraction: (NSInteger)interaction {
     
-    // 0 - CTNoInteraction
-    // 1 - CTGreatInteraction
-    
-    NSMutableArray *array = [NSMutableArray array];
-    
-    [array addObject:[[LineChain alloc] initWithLine:[self randomLineCityCTNoInteraction]]];
-    
-    
-    //LineChain *chain1 = [[LineChain alloc] initWithLine:@""]
-    
-    return array;
-    
-}
+    switch (interaction) {
+        case CTNoInteraction: return [self generateLineChainsForString:[self cityNoInteraction]]; break;
+        case CTGreatInteraction: return [self generateLineChainsForString:[self cityGreatInteraction]]; break;
 
--(NSString *)randomLineCityCTNoInteraction {
-    
-    int r = arc4random_uniform(4);
-    
-    switch (r) {
-        case 0: return @"I don’t have time."; break;
-        case 1: return @"Get lost."; break;
-        case 2: return @"Excuse me."; break;
-        case 3: return @"..."; break;
     }
     
     return nil;
     
 }
 
+-(NSString *)cityNoInteraction {
+    return @"01(I don’t have time.),(Get lost.),(Excuse me.),(...)";
+}
 
--(NSString *)randomLineCityCTGreatInteraction {
+-(NSString *)cityGreatInteraction {
+    return @"07(Good day.),(Hi.),(Hello. What’s up?),(What you need?) C01{[Help],[Food]} C01{[I],[Food]} C02{[Food][ANYKEY]} C03{[Help][ANYKEY]} C04{[YOU][NAME]} C05{[ANYKEY][ANYKEY]} |1(CALL:ShowRestaurant) |2(Food? What?)  C01{[Help],[Food]} C01{[I],[Food]} C02{[Food][ANYKEY]} C03{[Help][ANYKEY]} C04{[YOU][NAME]} C05{[ANYKEY][ANYKEY]} |3(Are you a foreigner?) C06{[YES]} |4(CALL:RandomName) |5(I don’t get it. Bye.) |6(Good luck here.)";
+}
+
+
+-(LineChain *)generateLineChainsForString: (NSString *)string {
     
-    int r = arc4random_uniform(4);
+    int size = [[string substringToIndex:2] intValue];
     
-    switch (r) {
-        case 0: return @"Good day."; break;
-        case 1: return @"HI."; break;
-        case 2: return @"Hello. What's up?"; break;
-        case 3: return @"What do you need?"; break;
+    NSMutableArray *arrayChains = [NSMutableArray array];
+    
+    for(int x = 0; x < size; x++) {
+        LineChain *chain = [[LineChain alloc] init];
+        [arrayChains addObject:chain];
     }
     
-    return nil;
+    string = [string substringFromIndex:2];
     
+    NSArray *chainComponent = [string componentsSeparatedByString:@"|"];
+    
+    
+    
+    for(int x = 0; x < chainComponent.count; x++) {
+    
+        NSString *str = [chainComponent objectAtIndex:x];
+        NSMutableArray *lines = [NSMutableArray array];
+        
+        
+        //Identify the lines that can happen in the chain
+        while (1) {
+           
+            NSRange range = [str rangeOfString:@"("];
+        
+            if(range.location == NSNotFound)
+                break;
+            
+            else {
+                
+                NSString *lineFound = [str substringFromIndex:range.location + 1];
+                
+                range = [str rangeOfString:@")"];
+                str = [str substringFromIndex:range.location + 1];
+                
+                range = [lineFound rangeOfString:@")"];
+                lineFound = [lineFound substringToIndex:range.location];
+                
+                [lines addObject:lineFound];
+                
+            }
+        }
+        
+        //Random the line in the lines array and add to the chain
+        [[arrayChains objectAtIndex:x] setLine:[lines objectAtIndex:arc4random_uniform(lines.count)]];
+        
+        NSLog(@"%@", str);
+        
+        while(1) {
+            
+            NSRange range = [str rangeOfString:@"C"];
+            
+            if(range.location == NSNotFound)
+                break;
+            
+            else {
+                
+                NSMutableArray *arrayKeys = [NSMutableArray array];
+                
+                NSString *chainIndex = [str substringToIndex:range.location + 3];
+                
+                chainIndex = [chainIndex substringFromIndex:range.location + 1];
+                
+                LineChain *chain = [arrayChains objectAtIndex:chainIndex.intValue];
+            
+                
+                range = [str rangeOfString:@"{"];
+                
+                NSString *allKey = [str substringFromIndex:range.location + 1];
+                
+                range = [allKey rangeOfString:@"}"];
+                
+                allKey = [allKey substringToIndex:range.location];
+                
+                //Now that the keys are separated by [str][str], we can get them
+                while (1) {
+                    
+                    range = [allKey rangeOfString:@"["];
+                    
+                    if(range.location == NSNotFound)
+                        break;
+                    
+                    NSString *newKey = [allKey substringFromIndex:range.location + 1];
+                    
+                    range = [allKey rangeOfString:@"]"];
+                    allKey = [allKey substringFromIndex:range.location + 1];
+                    
+                    range = [newKey rangeOfString:@"]"];
+                    newKey = [newKey substringToIndex:range.location];
+                    
+                    [arrayKeys addObject:newKey];
+                    
+                }
+                
+                range = [str rangeOfString:@"}"];
+                str = [str substringFromIndex:range.location + 1];
+                
+                LineChain *main = [arrayChains objectAtIndex:x];
+                
+                LineKey *lineKey = [[LineKey alloc] initWithKeys:arrayKeys];
+  
+                [main addLineChain:chain forLineKey:lineKey];
+                
+            }
+            
+        }
+    
+    }
+    
+    LineChain *chain = [arrayChains objectAtIndex:0];
+    
+    return chain;
 }
 
-
--(void)t {
-    
-    LineChain *chain1;
-    LineChain *chain2;
-    
-    LineKey *key;
-    
-    [chain1 addLineChain:chain2 forLineKey:key];
-}
 
 @end

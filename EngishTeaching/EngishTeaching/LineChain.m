@@ -10,6 +10,7 @@
 
 @implementation LineChain
 
+
 -(id)initWithLine: (NSString *)line {
     
     self = [super init];
@@ -42,6 +43,11 @@
 }
 
 -(void)addLineChain:(LineChain *)chain forLineKey: (LineKey *)key {
+    
+    if(![self lineKeys]) {
+        [self setLineKeys:[NSMutableArray array]];
+        [self setChainForKeys:[NSMutableArray array]];
+    }
     
     [[self lineKeys] addObject:key];
     [[self chainForKeys] addObject:chain];

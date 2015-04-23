@@ -11,4 +11,6 @@
 
 @interface CharacterLines : NSObject
 
+-(LineChain *)lineChainForCityWithInteraction: (NSInteger)interaction;
+
 @end

@@ -10,13 +10,27 @@
 
 @implementation LineKey
 
+-(id)initWithKeys: (NSArray *)array {
+    
+    self = [super init];
+    
+    if(self) {
+        
+        _keys = [NSArray arrayWithArray:array];
+        
+    }
+    
+    return self;
+    
+}
+
 -(BOOL)validForKeys: (NSArray *)keys {
 
     for(int x = 0; x < [[self keys] count]; x++) {
         
         NSString *key = [[self keys] objectAtIndex:x];
         
-        if(![key isEqualToString:@"KEY_ANY"]) {
+        if(![key isEqualToString:@"ANYKEY"]) {
             
             BOOL notFound = true;
             

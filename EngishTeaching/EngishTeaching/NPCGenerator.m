@@ -61,6 +61,8 @@ static const uint32_t bodyCategory =  0x1 << 2;
     int fileRandom = arc4random_uniform(generationFiles.count);
     int randomDirection = arc4random_uniform(4);
     
+    CharacterLines *lines = [[CharacterLines alloc] init];
+    
     NPCFile *file = [generationFiles objectAtIndex:fileRandom];
     
     NPC *new = [[NPC alloc] initWithTexture:file.npcTexture];
@@ -69,7 +71,7 @@ static const uint32_t bodyCategory =  0x1 << 2;
     
     if(generationType == GTCityType) {
         
-        if(percentualRandom <= 90) {
+        if(percentualRandom <= 85) {
             [new setCharacterType:CTNoInteraction];
             
         }
@@ -78,6 +80,10 @@ static const uint32_t bodyCategory =  0x1 << 2;
             [new setCharacterType:CTGreatInteraction];
             [new setProgressKey:[self progressKey]];
         }
+        
+        LineChain *mainChain = [lines lineChainForCityWithInteraction:[new characterType]];
+        
+        [new setChain:mainChain];
         
     }
     
@@ -92,7 +98,7 @@ static const uint32_t bodyCategory =  0x1 << 2;
     [new setZPosition:1.0];
 
     [new runAction:[self getDirectionForRandom:randomDirection]];
-    
+
     [self getDirectionForRandom:randomDirection];
     
     [nodeInsertion addChild:new];
