@@ -80,6 +80,7 @@
         return;
     }
     for (UITouch *touch in touches) {
+
         SKNode *node = [self nodeAtPoint:[touch locationInNode:self.parent]];
         if ([[node name] isEqualToString:@"btnCancel"]) {
             [self clearDictionarySelection];

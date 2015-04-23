@@ -62,4 +62,13 @@
     else return false;
 }
 
+-(NSInteger)numberOfKeysNeeded {
+    
+    if([[self lineKeys] count] <= 0) {
+        return 0;
+    }
+    
+    else return [[[[self lineKeys] objectAtIndex:0] keys] count];
+}
+
 @end

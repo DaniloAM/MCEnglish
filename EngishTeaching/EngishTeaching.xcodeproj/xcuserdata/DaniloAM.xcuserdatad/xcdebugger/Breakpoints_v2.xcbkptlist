@@ -9,13 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EngishTeaching/NPCGenerator.m"
-            timestampString = "451421614.14501"
+            filePath = "EngishTeaching/BackgroundNode.m"
+            timestampString = "451512035.687127"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "-generateNewNPC"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "-addChild:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

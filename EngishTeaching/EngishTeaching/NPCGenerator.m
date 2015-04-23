@@ -24,7 +24,7 @@ static const uint32_t bodyCategory =  0x1 << 2;
         generatePosition = point;
         nodeInsertion = node;
         
-        _stopGenerating = false;
+        generatingStop = false;
 
         size = CGSizeMake(50, 50);
         
@@ -49,7 +49,9 @@ static const uint32_t bodyCategory =  0x1 << 2;
 
 -(void)startGeneratingNPC {
     
-    [self generateNewNPC];
+    //generatingStop = false;
+    
+    generateTimer = [NSTimer scheduledTimerWithTimeInterval:spawnRateInSeconds target:self selector:@selector(generateNewNPC) userInfo:nil repeats:true];
     
     //[self performSelectorInBackground:@selector(generateNewNPC) withObject:nil];
 }
@@ -58,7 +60,7 @@ static const uint32_t bodyCategory =  0x1 << 2;
 -(void)generateNewNPC {
     
     int percentualRandom = arc4random_uniform(100);
-    int fileRandom = arc4random_uniform(generationFiles.count);
+    int fileRandom = arc4random_uniform((int)generationFiles.count);
     int randomDirection = arc4random_uniform(4);
     
     CharacterLines *lines = [[CharacterLines alloc] init];
@@ -101,12 +103,14 @@ static const uint32_t bodyCategory =  0x1 << 2;
 
     [self getDirectionForRandom:randomDirection];
     
+//    if(generatingStop) {
+//        return;
+//    }
+    
     [nodeInsertion addChild:new];
     
-    if(![self stopGenerating]) {
-        [self performSelector:@selector(generateNewNPC) withObject:nil afterDelay:spawnRateInSeconds];
-    }
 }
+
 
 -(SKAction *)getDirectionForRandom: (int)rand {
     
@@ -123,6 +127,10 @@ static const uint32_t bodyCategory =  0x1 << 2;
     }
 }
 
-
+-(void)stopGenerating {
+    //generatingStop = true;
+    [generateTimer invalidate];
+    generateTimer = nil;
+}
 
 @end

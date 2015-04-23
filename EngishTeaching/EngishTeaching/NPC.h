@@ -33,6 +33,7 @@ typedef enum CharacterTypes {
 @property int characterType;
 @property NSMutableArray *characterLines;
 @property NSString *progressKey;
+@property SKAction *actionDireciton;
 
 
 

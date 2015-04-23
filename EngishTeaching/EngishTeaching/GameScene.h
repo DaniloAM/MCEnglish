@@ -11,13 +11,17 @@
 #import "DictionaryScene.h"
 #import "GameViewController.h"
 #import "CharacterLines.h"
+#import "BackgroundNode.h"
 
 @interface GameScene : SKScene <SKPhysicsContactDelegate , DictionaryDelegate> {
     NPCGenerator *generator;
+    SKSpriteNode *darkerNode;
+    BOOL isTalking;
+    NPC *npcTalking;
 }
 
 @property SKLabelNode *textBox;
-@property SKSpriteNode *base;
+@property BackgroundNode *background;
 @property SKSpriteNode *character;
 @property GameViewController *viewController;
 

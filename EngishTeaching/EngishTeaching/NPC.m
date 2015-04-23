@@ -59,8 +59,16 @@
     
 }
 
--(void)runAction:(SKAction *)action withKey:(NSString *)key {
+-(void)runAction:(SKAction *)action withKey:(NSString *)key{
+    [super runAction:action withKey:key];
+    [self setActionDireciton:action];
     
+}
+
+-(void)runAction:(SKAction *)action {
+    
+    [super runAction:action];
+    [self setActionDireciton:action];
 }
 
 //-(void)generateNewRandomNPC {
