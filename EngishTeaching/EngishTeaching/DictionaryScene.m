@@ -11,6 +11,8 @@
 @implementation DictionaryScene{
     NSMutableArray *lblWords;
     Dictionary *dic;
+    NSMutableArray *selectedWords;
+    int chosenWords;
 }
 
 /**
@@ -62,6 +64,9 @@
         SKLabelNode *node = [lblWords objectAtIndex:i];
         [node setText:@""];
     }
+
+    selectedWords = [[NSMutableArray alloc] init];
+    chosenWords = 0;
 }
 
 /**
@@ -75,13 +80,30 @@
         return;
     }
     for (UITouch *touch in touches) {
-        SKLabelNode *node = (SKLabelNode*)[self nodeAtPoint:[touch locationInNode:self.parent]];
+        SKNode *node = [self nodeAtPoint:[touch locationInNode:self.parent]];
+        if ([[node name] isEqualToString:@"btnCancel"]) {
+            for (SKLabelNode *l in lblWords) {
+                [l setFontColor:[UIColor blackColor]];
+            }
+            return;
+        }
+        else if ([[node name] isEqualToString:@"btnConfirm"]) {
+            if (chosenWords < [self numberOfWordsToChoose] || chosenWords > [self numberOfWordsToChoose]) {
+                return;
+            }
+            [[self dictionaryDelegate] chosenWord:selectedWords];
+            return;
+        }
+
+        SKLabelNode *lblNode = (SKLabelNode*)[self nodeAtPoint:[touch locationInNode:self.parent]];
         int index = [lblWords indexOfObject:node];
         if (index >= 0 && index <= [lblWords count]) {
             if (index >= 0 && index <= [[dic words] count]) {
                 if ([[[dic words] objectAtIndex:index] isKnown]) {
-                    [node setFontColor:[UIColor redColor]];
-                    [[self dictionaryDelegate] chosenWord:[[dic words] objectAtIndex:index]];
+                    [lblNode setFontColor:[UIColor redColor]];
+                    [selectedWords addObject:[[[dic words] objectAtIndex:index] original]];
+                    chosenWords++;
+                    return;
                 }
             }
         }

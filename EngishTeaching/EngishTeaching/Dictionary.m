@@ -68,13 +68,31 @@
  */
 -(void) loadWords{
 #warning O ideal é inicializar lendo o conteúdo a partir de um arquivo de texto, porém a fim de teste estou iniciando estáticamente
-    Word *w001 = [[Word alloc] initWithOriginal:@"Hello" andMeaning:@"Olá"];
-    Word *w002 = [[Word alloc] initWithOriginal:@"Name" andMeaning:@"Nome"];
-    Word *w003 = [[Word alloc] initWithOriginal:@"Food" andMeaning:@"Comida"];
-    Word *w004 = [[Word alloc] initWithOriginal:@"I" andMeaning:@"Eu"];
-    Word *w005 = [[Word alloc] initWithOriginal:@"You" andMeaning:@"Você"];
+    Word *w001 = [[Word alloc] initWithOriginal:@"I" andMeaning:@"Eu"];
+    Word *w002 = [[Word alloc] initWithOriginal:@"You" andMeaning:@"Voce"];
+    Word *w003 = [[Word alloc] initWithOriginal:@"Yes" andMeaning:@"Sim"];
+    Word *w004 = [[Word alloc] initWithOriginal:@"No" andMeaning:@"Não"];
+    Word *w005 = [[Word alloc] initWithOriginal:@"Help" andMeaning:@"Ajuda"];
+    Word *w006 = [[Word alloc] initWithOriginal:@"Hi" andMeaning:@"Oi"];
+    Word *w007 = [[Word alloc] initWithOriginal:@"Name" andMeaning:@"Nome"];
+    Word *w008 = [[Word alloc] initWithOriginal:@"Food" andMeaning:@"Comida"];
+    Word *w009 = [[Word alloc] initWithOriginal:@"Book" andMeaning:@"Livro"];
+    Word *w010 = [[Word alloc] initWithOriginal:@"Table" andMeaning:@"Mesa"];
 
-    [self setWords:[[NSMutableArray alloc] initWithObjects:w001, w002, w003, w004, w005, nil]];
+    [w001 setIsKnown:YES];
+    [w002 setIsKnown:YES];
+    [w003 setIsKnown:YES];
+    [w004 setIsKnown:YES];
+    [w005 setIsKnown:YES];
+    [w006 setIsKnown:YES];
+    [w007 setIsKnown:YES];
+    [w008 setIsKnown:YES];
+    [w009 setIsKnown:YES];
+    [w010 setIsKnown:YES];
+
+    Word *w011 = [[Word alloc] initWithOriginal:@"Sleep" andMeaning:@"Dormir"];
+
+    [self setWords:[[NSMutableArray alloc] initWithObjects:w001, w002, w003, w004, w005, w006, w007, w008, w009, w010, w011, nil]];
     [self sortWordsArray];
 }
 

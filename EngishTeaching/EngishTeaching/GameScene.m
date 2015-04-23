@@ -34,6 +34,9 @@ static const uint32_t bodyCategory =  0x1 << 2;
 @implementation GameScene{
     BOOL showDic;
     DictionaryScene *dicScene;
+    int numberOfWords;
+    int numberOfSelectedWords;
+    NSMutableArray *chosenWords;
 }
 
 -(void)didMoveToView:(SKView *)view {
@@ -187,9 +190,16 @@ static const uint32_t bodyCategory =  0x1 << 2;
  @param isAnswer - Define se o dicionário será usado para definir uma resposta para um NPC ou se será somente consulta
  */
 -(void) showDictionarySceneInAnswerMode:(BOOL)isAnswer{
-    dicScene = [DictionaryScene unarchiveFromFile:@"DictionaryScene"];
+
+    if (isAnswer) {
+        dicScene = [DictionaryScene unarchiveFromFile:@"DictionaryScene2"];
+#warning test
+        [dicScene setNumberOfWordsToChoose:2];
+    }
+    else{
+        dicScene = [DictionaryScene unarchiveFromFile:@"DictionaryScene"];
+    }
     [dicScene startScene];
-    [dicScene setSize:self.size];
     [dicScene setPhysicsBody:nil];
     [dicScene setAnswerMode:isAnswer];
     [dicScene setDictionaryDelegate:self];
@@ -197,8 +207,12 @@ static const uint32_t bodyCategory =  0x1 << 2;
     showDic = true;
 }
 
--(void)chosenWord:(Word *)word{
+-(void)chosenWord:(NSMutableArray *)words{
+#warning NSLog de teste apenas
+    NSLog(@"Recebeu o array com as seguintes palavras: %@ %@", [words objectAtIndex:0], [words objectAtIndex:1]);
 
+    showDic = false;
+    [dicScene removeFromParent];
 }
 
 /**
@@ -212,7 +226,7 @@ static const uint32_t bodyCategory =  0x1 << 2;
 -(BOOL) checkIfDictionaryWasTouched:(UITouch*) touch inLocation:(CGPoint) location{
         //Checa se o botão do dicionário foi tocado, caso verdadeiro, mostra o dicionário na tela
     if ([[[self nodeAtPoint:[touch locationInNode:self]] name] isEqual:@"btnDictionary"]) {
-        [self showDictionarySceneInAnswerMode:NO];
+        [self showDictionarySceneInAnswerMode:YES];
         return true;
     }
     return false;

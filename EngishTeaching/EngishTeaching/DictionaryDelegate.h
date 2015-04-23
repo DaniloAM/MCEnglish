@@ -12,8 +12,8 @@
 @protocol DictionaryDelegate <NSObject>
 
 /**
- Recebe a palavra escolhida pelo player na cena do dicionário
+ Recebe as palavras escolhidas pelo player na cena do dicionário
  */
--(void) chosenWord:(Word*)word;
+-(void) chosenWord:(NSMutableArray*)words;
 
 @end
