@@ -133,6 +133,11 @@ static const uint32_t bodyCategory =  0x1 << 2;
     
     if(isTalking) {
         [self endNPCTalking];
+        
+        if(showDic) {
+            showDic = false;
+            [dictionaryScene removeFromParent];
+        }
         return;
     }
     
@@ -240,10 +245,20 @@ static const uint32_t bodyCategory =  0x1 << 2;
 
 -(void)chosenWord:(NSMutableArray *)words{
 #warning NSLog de teste apenas
-    NSLog(@"Recebeu o array com as seguintes palavras: %@ %@", [words objectAtIndex:0], [words objectAtIndex:1]);
+    
+    LineChain *chain = [[npcTalking chain] nextChainForKeys:words];
+    
+    if(!chain) {
+        showDic = false;
+        [dictionaryScene removeFromParent];
+        
+        return;
+    }
+    
+    [npcTalking setChain:chain];
+    
+    [self startNPCTalking:npcTalking];
 
-    showDic = false;
-    [dictionaryScene removeFromParent];
 }
 
 /**
@@ -256,9 +271,13 @@ static const uint32_t bodyCategory =  0x1 << 2;
  */
 -(BOOL) checkIfDictionaryWasTouched:(UITouch*) touch inLocation:(CGPoint) location{
         //Checa se o botão do dicionário foi tocado, caso verdadeiro, mostra o dicionário na tela
-    if ([[[self nodeAtPoint:[touch locationInNode:self]] name] isEqual:@"btnDictionary"]) {
-        [self showDictionarySceneInAnswerMode:NO];
-        return true;
+    for(SKNode *node in [self nodesAtPoint:[touch locationInNode:self]]) {
+        
+        if ([[node name] isEqual:@"btnDictionary"]) {
+            [self showDictionarySceneInAnswerMode:NO];
+            return true;
+        }
+        
     }
     return false;
 }
@@ -312,15 +331,30 @@ static const uint32_t bodyCategory =  0x1 << 2;
 
 -(void)startNPCTalking: (NPC*)npc {
     
-    isTalking = true;
-
+    if(!isTalking) {
+        
+        isTalking = true;
+        
+        [self darkerScene];
+        [self pauseAllNPCs];
+        
+        if(![[npc chain] isFinalLineChain]) {
+            [self showDictionarySceneInAnswerMode:true];
+            
+            [dictionaryScene setNumberOfWordsToChoose:[[npc chain] numberOfKeysNeeded]];
+        }
+        
+    }
+    
+    if([[npc chain] isFinalLineChain]) {
+        showDic = false;
+        [dictionaryScene removeFromParent];
+    }
+    
     _textBox.text = [[npc chain] line];
     [[self textBox] setHidden:false];
     
-    [self darkerScene];
-    [self pauseAllNPCs];
-    
-    //[self showDictionarySceneInAnswerMode:true];
+    npcTalking = npc;
 }
 
 -(void)endNPCTalking {
@@ -332,11 +366,13 @@ static const uint32_t bodyCategory =  0x1 << 2;
     [self lighterScene];
     [self unpauseAllNPCs];
     
+    npcTalking = nil;
+    
 }
 
 -(void)darkerScene {
     
-    [darkerNode runAction:[SKAction fadeAlphaBy:0.6 duration:0.2]];
+    [darkerNode runAction:[SKAction fadeAlphaTo:0.6 duration:0.2]];
     
 }
 
