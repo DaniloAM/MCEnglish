@@ -33,7 +33,7 @@ static const uint32_t bodyCategory =  0x1 << 2;
 
 @implementation GameScene{
     BOOL showDic;
-    DictionaryScene *dicScene;
+    DictionaryScene *dictionaryScene;
     int numberOfWords;
     int numberOfSelectedWords;
     NSMutableArray *chosenWords;
@@ -138,7 +138,7 @@ static const uint32_t bodyCategory =  0x1 << 2;
     
     if (showDic) {
         showDic = false;
-        [dicScene removeFromParent];
+        [dictionaryScene removeFromParent];
         return;
     }
 
@@ -223,18 +223,18 @@ static const uint32_t bodyCategory =  0x1 << 2;
 -(void) showDictionarySceneInAnswerMode:(BOOL)isAnswer{
 
     if (isAnswer) {
-        dicScene = [DictionaryScene unarchiveFromFile:@"DictionaryScene2"];
+        dictionaryScene = [DictionaryScene unarchiveFromFile:@"DictionaryScene2"];
 #warning test
-        [dicScene setNumberOfWordsToChoose:2];
+        [dictionaryScene setNumberOfWordsToChoose:2];
     }
     else{
-        dicScene = [DictionaryScene unarchiveFromFile:@"DictionaryScene"];
+        dictionaryScene = [DictionaryScene unarchiveFromFile:@"DictionaryScene"];
     }
-    [dicScene startScene];
-    [dicScene setPhysicsBody:nil];
-    [dicScene setAnswerMode:isAnswer];
-    [dicScene setDictionaryDelegate:self];
-    [self addChild:dicScene];
+    [dictionaryScene startScene];
+    [dictionaryScene setPhysicsBody:nil];
+    [dictionaryScene setAnswerMode:isAnswer];
+    [dictionaryScene setDictionaryDelegate:self];
+    [self addChild:dictionaryScene];
     showDic = true;
 }
 
@@ -243,7 +243,7 @@ static const uint32_t bodyCategory =  0x1 << 2;
     NSLog(@"Recebeu o array com as seguintes palavras: %@ %@", [words objectAtIndex:0], [words objectAtIndex:1]);
 
     showDic = false;
-    [dicScene removeFromParent];
+    [dictionaryScene removeFromParent];
 }
 
 /**
@@ -257,7 +257,7 @@ static const uint32_t bodyCategory =  0x1 << 2;
 -(BOOL) checkIfDictionaryWasTouched:(UITouch*) touch inLocation:(CGPoint) location{
         //Checa se o botão do dicionário foi tocado, caso verdadeiro, mostra o dicionário na tela
     if ([[[self nodeAtPoint:[touch locationInNode:self]] name] isEqual:@"btnDictionary"]) {
-        [self showDictionarySceneInAnswerMode:YES];
+        [self showDictionarySceneInAnswerMode:NO];
         return true;
     }
     return false;

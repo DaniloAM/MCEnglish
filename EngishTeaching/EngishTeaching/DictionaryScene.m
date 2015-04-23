@@ -10,7 +10,7 @@
 
 @implementation DictionaryScene{
     NSMutableArray *lblWords;
-    Dictionary *dic;
+    Dictionary *dictionary;
     NSMutableArray *selectedWords;
     int chosenWords;
 }
@@ -40,16 +40,16 @@
         return;
     }
 
-    dic = [Dictionary sharedStore];
+    dictionary = [Dictionary sharedStore];
 
-    [dic setWordAsKnown:@"Name"];
-    [dic setWordAsKnown:@"Hello"];
+    [dictionary setWordAsKnown:@"Name"];
+    [dictionary setWordAsKnown:@"Hello"];
 
 //    [dic setWordAsKnown:@"Food"];
 
 
     int i=0;
-    for (Word *word in [dic words]) {
+    for (Word *word in [dictionary words]) {
         SKLabelNode *node = [lblWords objectAtIndex:i];
         if ([word isKnown]) {
             [node setText: [NSString stringWithFormat:@"%@ - %@", [word original], [word meaning]]];
@@ -100,10 +100,10 @@
         int index = [lblWords indexOfObject:node];
 
         if (index >= 0 && index <= [lblWords count]) {
-            if (index >= 0 && index <= [[dic words] count]) {
-                if ([[[dic words] objectAtIndex:index] isKnown]) {
+            if (index >= 0 && index <= [[dictionary words] count]) {
+                if ([[[dictionary words] objectAtIndex:index] isKnown]) {
                     [lblNode setFontColor:[UIColor redColor]];
-                    [selectedWords addObject:[[[dic words] objectAtIndex:index] original]];
+                    [selectedWords addObject:[[[dictionary words] objectAtIndex:index] original]];
                     chosenWords++;
                     return;
                 }
