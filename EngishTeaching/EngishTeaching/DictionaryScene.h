@@ -14,6 +14,7 @@
 
 @property id<DictionaryDelegate> dictionaryDelegate;
 @property BOOL answerMode;
+@property int numberOfWordsToChoose;
 
 -(void) startScene;
 
