@@ -14,6 +14,7 @@
 		5BA7E0951AE03567003D2E3D /* Word.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA7E0921AE03567003D2E3D /* Word.m */; };
 		5BA7E0961AE03567003D2E3D /* Dictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA7E0941AE03567003D2E3D /* Dictionary.m */; };
 		FF6A0F1B1AE834A700997B5E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD0E2CA1AE0255A000BF544 /* AppDelegate.m */; };
+		FF6A0F1F1AE9848100997B5E /* BackgroundNode.m in Sources */ = {isa = PBXBuildFile; fileRef = FF6A0F1E1AE9848100997B5E /* BackgroundNode.m */; };
 		FF86DC3D1AE18788007AB12D /* NPCFile.m in Sources */ = {isa = PBXBuildFile; fileRef = FF86DC3C1AE18788007AB12D /* NPCFile.m */; };
 		FFBAE7931AE81C3300D9206E /* LightCharacter.png in Resources */ = {isa = PBXBuildFile; fileRef = FFBAE7921AE81C3300D9206E /* LightCharacter.png */; };
 		FFD0E2C81AE0255A000BF544 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD0E2C71AE0255A000BF544 /* main.m */; };
@@ -56,6 +57,8 @@
 		5BA7E0931AE03567003D2E3D /* Dictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dictionary.h; sourceTree = "<group>"; };
 		5BA7E0941AE03567003D2E3D /* Dictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dictionary.m; sourceTree = "<group>"; };
 		5BA7E0971AE042AC003D2E3D /* DictionaryDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictionaryDelegate.h; sourceTree = "<group>"; };
+		FF6A0F1D1AE9848100997B5E /* BackgroundNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundNode.h; sourceTree = "<group>"; };
+		FF6A0F1E1AE9848100997B5E /* BackgroundNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundNode.m; sourceTree = "<group>"; };
 		FF86DC3B1AE18788007AB12D /* NPCFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPCFile.h; sourceTree = "<group>"; };
 		FF86DC3C1AE18788007AB12D /* NPCFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPCFile.m; sourceTree = "<group>"; };
 		FFBAE7921AE81C3300D9206E /* LightCharacter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LightCharacter.png; sourceTree = "<group>"; };
@@ -156,6 +159,8 @@
 				FFD0E2D21AE0255A000BF544 /* GameViewController.m */,
 				FFD0E2F61AE03007000BF544 /* GameScene.h */,
 				FFD0E2F71AE03007000BF544 /* GameScene.m */,
+				FF6A0F1D1AE9848100997B5E /* BackgroundNode.h */,
+				FF6A0F1E1AE9848100997B5E /* BackgroundNode.m */,
 				FFD0E2F81AE03007000BF544 /* GameScene.sks */,
 				FFD0E2F51AE03007000BF544 /* MissingResource.png */,
 				5BA7E08C1AE03443003D2E3D /* DictionaryScene.sks */,
@@ -323,6 +328,7 @@
 				5B01256A1AE8279A00580CD6 /* RestaurantScene.m in Sources */,
 				5BA7E0961AE03567003D2E3D /* Dictionary.m in Sources */,
 				FFD0E2FA1AE03007000BF544 /* GameScene.m in Sources */,
+				FF6A0F1F1AE9848100997B5E /* BackgroundNode.m in Sources */,
 				FF86DC3D1AE18788007AB12D /* NPCFile.m in Sources */,
 				FFD0E2C81AE0255A000BF544 /* main.m in Sources */,
 				FFD0E3081AE03E77000BF544 /* NPCGenerator.m in Sources */,

@@ -80,9 +80,7 @@
         }
         
         //Random the line in the lines array and add to the chain
-        [[arrayChains objectAtIndex:x] setLine:[lines objectAtIndex:arc4random_uniform(lines.count)]];
-        
-        NSLog(@"%@", str);
+        [[arrayChains objectAtIndex:x] setLine:[lines objectAtIndex:arc4random_uniform((int)lines.count)]];
         
         while(1) {
             

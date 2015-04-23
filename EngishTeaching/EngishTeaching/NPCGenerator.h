@@ -28,14 +28,16 @@ typedef enum GenerationType {
     NSMutableArray *generationFiles;
     SKNode *nodeInsertion;
     CGSize size;
+    BOOL generatingStop;
+    NSTimer *generateTimer;
 }
 
 @property GenerationType genType;
-@property BOOL stopGenerating;
 @property NSString *progressKey;
 
 -(id)initWithGenerationType: (NSInteger)type spawnRate: (float)seconds inPosition:(CGPoint)point atNode: (SKNode *)node;
 -(void)addNPCFiles: (NSArray *)files;
 -(void)startGeneratingNPC;
+-(void)stopGenerating;
 
 @end

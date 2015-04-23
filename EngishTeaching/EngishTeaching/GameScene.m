@@ -42,7 +42,24 @@ static const uint32_t bodyCategory =  0x1 << 2;
     self.physicsWorld.contactDelegate = self;
     
     [self setTextBox:(SKLabelNode*)[self childNodeWithName:@"textBox"]];
-    [self setBase:(SKSpriteNode*)[self childNodeWithName:@"fundo"]];
+    [[self textBox] setZPosition:10.0];
+    [[self textBox] setHidden:true];
+    [self setBackground:(BackgroundNode*)[self childNodeWithName:@"fundo"]];
+    
+    SKSpriteNode *back = (SKSpriteNode *)[self childNodeWithName:@"fundo"];
+    _background = [[BackgroundNode alloc] initWithTexture:back.texture];
+    
+    _background.size = back.size;
+    _background.position = back.position;
+    
+    for(SKNode *node in back.children) {
+        [node removeFromParent];
+        [_background addChild:node];
+    }
+    
+    [back removeFromParent];
+    [self addChild:_background];
+    
     [self setCharacter:(SKSpriteNode*)[self childNodeWithName:@"character"]];
     
     SKPhysicsBody *cBody = [SKPhysicsBody bodyWithRectangleOfSize:[[self character] size]];
@@ -54,9 +71,9 @@ static const uint32_t bodyCategory =  0x1 << 2;
     [[self character] setPhysicsBody:cBody];
     
     
-    for(int x = 0; x < [[[self base] children] count]; x++) {
+    for(int x = 0; x < [[[self background] children] count]; x++) {
         
-        SKSpriteNode *node = [[[self base] children] objectAtIndex:x];
+        SKSpriteNode *node = [[[self background] children] objectAtIndex:x];
         
         SKPhysicsBody *body = [SKPhysicsBody bodyWithRectangleOfSize:[node size]];
         
@@ -78,7 +95,7 @@ static const uint32_t bodyCategory =  0x1 << 2;
     //GENERATION TEST *********************
 
     
-    generator = [[NPCGenerator alloc] initWithGenerationType:GTCityType spawnRate:1.0 inPosition:CGPointMake(-250, -227) atNode:[self base]];
+    generator = [[NPCGenerator alloc] initWithGenerationType:GTCityType spawnRate:1.0 inPosition:CGPointMake(-250, -227) atNode:[self background]];
     
     NPCFile *file1 = [[NPCFile alloc] initWithTextureName:@"LightCharacter.png" andPictureName:@"LightCharacter.png" withGender:1];
     
@@ -88,6 +105,20 @@ static const uint32_t bodyCategory =  0x1 << 2;
     
     [generator startGeneratingNPC];
     
+    
+    //Darker node
+    darkerNode = [[SKSpriteNode alloc] initWithColor:[UIColor blackColor] size:self.size];
+    
+    darkerNode.zPosition = 5.0;
+    
+    darkerNode.alpha = 0.0;
+    
+    darkerNode.position = CGPointMake(self.size.width/2, self.size.height/2);
+    
+    [self addChild:darkerNode];
+    
+    [_textBox setFontColor:[UIColor whiteColor]];
+    
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -96,6 +127,12 @@ static const uint32_t bodyCategory =  0x1 << 2;
     /* Called when a touch begins */
 
         //Checa se o dicionário está sendo mostrado na tela, caso verdadeiro, remove o dicionário da tela
+    
+    if(isTalking) {
+        [self endNPCTalking];
+        return;
+    }
+    
     if (showDic) {
         showDic = false;
         [dicScene removeFromParent];
@@ -142,10 +179,7 @@ static const uint32_t bodyCategory =  0x1 << 2;
             
             NPC *npc = (NPC *)nodeA;
             
-            [[self textBox] setText:[[npc chain] line]];
-            
-#warning test-olny
-            [nodeA removeFromParent];
+            [self startNPCTalking:npc];
         }
         
         else [[[contact bodyA] node] removeFromParent];
@@ -164,10 +198,7 @@ static const uint32_t bodyCategory =  0x1 << 2;
             
             NPC *npc = (NPC *)nodeB;
             
-            [[self textBox] setText:[[npc chain] line]];
-            
-#warning test-olny
-            [nodeB removeFromParent];
+            [self startNPCTalking:npc];
         }
         
         else [[[contact bodyB] node] removeFromParent];
@@ -176,7 +207,7 @@ static const uint32_t bodyCategory =  0x1 << 2;
     }
     
     
-    [[self base] removeAllActions];
+    [[self background] removeAllActions];
     [[self character] runAction:[SKAction moveTo:CGPointMake(self.size.width/2, self.size.height/2) duration:0.1]];
 }
 
@@ -229,26 +260,21 @@ static const uint32_t bodyCategory =  0x1 << 2;
 -(BOOL) moveCharacterTo:(UITouch*) touch andLocation:(CGPoint) location{
     [[self character] runAction:[SKAction moveTo:CGPointMake(self.size.width/2, self.size.height/2) duration:0.1]];
 
-    CGPoint fundoLocation = [touch locationInNode:self.base];
+    CGPoint fundoLocation = [touch locationInNode:self.background];
     
-    if([[[self base] nodesAtPoint:fundoLocation] count] > 0) {
+    if([[[self background] nodesAtPoint:fundoLocation] count] > 0) {
 
         BOOL notMove = true;
         
-        for(SKNode *node in [[self base] nodesAtPoint:fundoLocation]) {
+        for(SKNode *node in [[self background] nodesAtPoint:fundoLocation]) {
             
             if([node.name isEqualToString:@"npc"]) {
                 notMove = false;
                 
                 NPC *npc = (NPC *)node;
                 
-                [[self textBox] setText:[[npc chain] line]];
-                
-                NSLog(@"NPC TALK");
-                //TALK ACTION
-                //***********
+                [self startNPCTalking:npc];
             }
-            
         }
         
         if(notMove) {
@@ -258,14 +284,76 @@ static const uint32_t bodyCategory =  0x1 << 2;
     
     CGPoint position = CGPointMake(521, 400);
     CGPoint movePoint = CGPointMake(location.x - position.x , location.y - position.y);
-    CGPoint basePosition = [[self base] position];
+    CGPoint backgroundPosition = [[self background] position];
 
-    basePosition.x -= movePoint.x;
-    basePosition.y -= movePoint.y;
+    backgroundPosition.x -= movePoint.x;
+    backgroundPosition.y -= movePoint.y;
 
     double distance = sqrt((movePoint.x * movePoint.x) + (movePoint.y * movePoint.y));
 
-    [[self base] runAction:[SKAction moveTo:basePosition duration:distance * 0.002]];
+    [[self background] runAction:[SKAction moveTo:backgroundPosition duration:distance * 0.002]];
     return true;
 }
+
+
+-(void)startNPCTalking: (NPC*)npc {
+    
+    isTalking = true;
+
+    _textBox.text = [[npc chain] line];
+    [[self textBox] setHidden:false];
+    
+    [self darkerScene];
+    [self pauseAllNPCs];
+    
+    //[self showDictionarySceneInAnswerMode:true];
+}
+
+-(void)endNPCTalking {
+    
+    isTalking = false;
+    
+    _textBox.hidden = true;
+    
+    [self lighterScene];
+    [self unpauseAllNPCs];
+    
+}
+
+-(void)darkerScene {
+    
+    [darkerNode runAction:[SKAction fadeAlphaBy:0.6 duration:0.2]];
+    
+}
+
+-(void)lighterScene {
+    
+    [darkerNode runAction:[SKAction fadeAlphaTo:0.0 duration:0.2]];
+    
+}
+
+-(void)pauseAllNPCs {
+    
+    [generator stopGenerating];
+    
+    for(SKNode *npc in _background.npcArray) {
+        [npc removeAllActions];
+    }
+    
+}
+
+-(void)unpauseAllNPCs {
+    
+    [generator startGeneratingNPC];
+    
+    for(int x = 0; x < _background.npcArray.count; x++) {
+        NPC *npc = (NPC *)[_background.npcArray objectAtIndex:x];
+        
+        if(![npc hasActions])
+            [npc runAction:[npc actionDireciton]];
+    }
+    
+}
+
+
 @end

@@ -19,5 +19,6 @@
 -(LineChain *)nextChainForKeys: (NSArray *)keys;
 -(void)addLineChain:(LineChain *)chain forLineKey: (LineKey *)key;
 -(BOOL)isFinalLineChain;
+-(NSInteger)numberOfKeysNeeded;
 
 @end

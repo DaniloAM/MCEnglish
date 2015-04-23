@@ -76,7 +76,7 @@
     }
     for (UITouch *touch in touches) {
         SKLabelNode *node = (SKLabelNode*)[self nodeAtPoint:[touch locationInNode:self.parent]];
-        int index = [lblWords indexOfObject:node];
+        int index = (int)[lblWords indexOfObject:node];
         if (index >= 0 && index <= [lblWords count]) {
             if (index >= 0 && index <= [[dic words] count]) {
                 if ([[[dic words] objectAtIndex:index] isKnown]) {
