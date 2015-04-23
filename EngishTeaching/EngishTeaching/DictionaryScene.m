@@ -99,6 +99,9 @@
         if (index >= 0 && index <= [lblWords count] && chosenWords < [self numberOfWordsToChoose]) {
             if (index >= 0 && index <= [[dictionary words] count]) {
                 if ([[[dictionary words] objectAtIndex:index] isKnown]) {
+                    if ([lblNode fontColor] == [UIColor redColor]) {
+                        return;
+                    }
                     [lblNode setFontColor:[UIColor redColor]];
                     [selectedWords addObject:[[[dictionary words] objectAtIndex:index] original]];
                     chosenWords++;
