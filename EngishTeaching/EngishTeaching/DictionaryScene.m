@@ -90,6 +90,9 @@
             if (chosenWords < [self numberOfWordsToChoose] || chosenWords > [self numberOfWordsToChoose]) {
                 return;
             }
+            
+            [self clearDictionarySelection];
+            
             [[self dictionaryDelegate] chosenWord:selectedWords];
             return;
         }

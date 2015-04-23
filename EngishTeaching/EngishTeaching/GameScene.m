@@ -340,11 +340,11 @@ static const uint32_t bodyCategory =  0x1 << 2;
         
         if(![[npc chain] isFinalLineChain]) {
             [self showDictionarySceneInAnswerMode:true];
-            
-            [dictionaryScene setNumberOfWordsToChoose:[[npc chain] numberOfKeysNeeded]];
         }
         
     }
+    
+    [dictionaryScene setNumberOfWordsToChoose:[[npc chain] numberOfKeysNeeded]];
     
     if([[npc chain] isFinalLineChain]) {
         showDic = false;
