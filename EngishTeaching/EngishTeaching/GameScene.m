@@ -92,7 +92,7 @@ static const uint32_t bodyCategory =  0x1 << 2;
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 #warning Teste para a cena do restaurante, apagar depois
-    [self.viewController showScene:@"RestaurantScene"];
+//    [self.viewController showScene:@"RestaurantScene"];
     /* Called when a touch begins */
 
         //Checa se o dicionário está sendo mostrado na tela, caso verdadeiro, remove o dicionário da tela
