@@ -71,8 +71,10 @@
     Word *w001 = [[Word alloc] initWithOriginal:@"Hello" andMeaning:@"Olá"];
     Word *w002 = [[Word alloc] initWithOriginal:@"Name" andMeaning:@"Nome"];
     Word *w003 = [[Word alloc] initWithOriginal:@"Food" andMeaning:@"Comida"];
+    Word *w004 = [[Word alloc] initWithOriginal:@"I" andMeaning:@"Eu"];
+    Word *w005 = [[Word alloc] initWithOriginal:@"You" andMeaning:@"Você"];
 
-    [self setWords:[[NSMutableArray alloc] initWithObjects:w001, w002, w003,nil]];
+    [self setWords:[[NSMutableArray alloc] initWithObjects:w001, w002, w003, w004, w005, nil]];
     [self sortWordsArray];
 }
 

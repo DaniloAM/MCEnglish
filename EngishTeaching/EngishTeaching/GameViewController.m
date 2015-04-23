@@ -79,16 +79,52 @@
     return YES;
 }
 
--(void) showRestaurant{
+-(void) showScene:(NSString*) sceneName{
         // Configure the view.
     SKView * skView = (SKView *)self.view;
  
         // Create and configure the scene.
-    RestaurantScene *scene = [RestaurantScene unarchiveFromFile:@"RestaurantScene"];
+    GameScene *scene;
+    scene = [GameScene unarchiveFromFile:sceneName];
     scene.scaleMode = SKSceneScaleModeAspectFill;
 
+    if ([self mainScene] == nil) {
+        [self setMainScene:scene];
+    }
+    else if ([self restaurantScene] == nil){
+        [self setRestaurantScene:scene];
+    }
+
+    if ([sceneName isEqualToString:@"GameScene"]) {
+        scene = (GameScene*)[self mainScene];
+    }
+    else if ([sceneName isEqualToString:@"RestaurantScene"]) {
+        scene = (GameScene*)[self restaurantScene];
+    }
+
         //Set the properties
-    [self setRestaurantScene:scene];
+    [self setCurrentScene:scene];
+
+        // Present the scene.
+    [skView presentScene:scene];
+}
+
+-(void) showMain{
+        // Configure the view.
+    SKView * skView = (SKView *)self.view;
+
+        // Create and configure the scene.
+    GameScene *scene;
+    if ([self restaurantScene] == nil) {
+        scene = [GameScene unarchiveFromFile:@"GameScene"];
+        scene.scaleMode = SKSceneScaleModeAspectFill;
+        [self setMainScene:scene];
+    }
+    else{
+        scene = (GameScene*)[self mainScene];
+    }
+
+        //Set the properties
     [self setCurrentScene:scene];
 
         // Present the scene.

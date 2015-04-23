@@ -16,6 +16,6 @@
 @property SKScene *mainScene;
 @property SKScene *restaurantScene;
 
--(void) showRestaurant;
+-(void) showScene:(NSString*) sceneName;
 
 @end

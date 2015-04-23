@@ -76,10 +76,7 @@ static const uint32_t bodyCategory =  0x1 << 2;
     
     
     //GENERATION TEST *********************
-    
-    CGPoint point = [self convertPoint:[[self character] position] toNode:[self base]];
-    
-    NSLog(@"%f %f", point.x, point.y);
+
     
     generator = [[NPCGenerator alloc] initWithGenerationType:GTCityType spawnRate:1.0 inPosition:CGPointMake(-250, -227) atNode:[self base]];
     
@@ -93,10 +90,9 @@ static const uint32_t bodyCategory =  0x1 << 2;
     
 }
 
-
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 #warning Teste para a cena do restaurante, apagar depois
-    [self.viewController showRestaurant];
+    [self.viewController showScene:@"RestaurantScene"];
     /* Called when a touch begins */
 
         //Checa se o dicionário está sendo mostrado na tela, caso verdadeiro, remove o dicionário da tela
@@ -109,7 +105,7 @@ static const uint32_t bodyCategory =  0x1 << 2;
     UITouch *touch = [[event allTouches] anyObject];
     CGPoint location = [touch locationInNode:self];
 
-    if ([self checkIfDicWasTouched:touch inLocation:location]) {
+    if ([self checkIfDictionaryWasTouched:touch inLocation:location]) {
         return;
     }
 
@@ -213,7 +209,7 @@ static const uint32_t bodyCategory =  0x1 << 2;
  
  @return verdadeiro se o botão foi tocado, falso caso contrário
  */
--(BOOL) checkIfDicWasTouched:(UITouch*) touch inLocation:(CGPoint) location{
+-(BOOL) checkIfDictionaryWasTouched:(UITouch*) touch inLocation:(CGPoint) location{
         //Checa se o botão do dicionário foi tocado, caso verdadeiro, mostra o dicionário na tela
     if ([[[self nodeAtPoint:[touch locationInNode:self]] name] isEqual:@"btnDictionary"]) {
         [self showDictionarySceneInAnswerMode:NO];
@@ -236,7 +232,7 @@ static const uint32_t bodyCategory =  0x1 << 2;
     CGPoint fundoLocation = [touch locationInNode:self.base];
     
     if([[[self base] nodesAtPoint:fundoLocation] count] > 0) {
-        
+
         BOOL notMove = true;
         
         for(SKNode *node in [[self base] nodesAtPoint:fundoLocation]) {
@@ -259,12 +255,10 @@ static const uint32_t bodyCategory =  0x1 << 2;
             return false;
         }
     }
-
     
     CGPoint position = CGPointMake(521, 400);
     CGPoint movePoint = CGPointMake(location.x - position.x , location.y - position.y);
     CGPoint basePosition = [[self base] position];
-
 
     basePosition.x -= movePoint.x;
     basePosition.y -= movePoint.y;

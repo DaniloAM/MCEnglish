@@ -42,6 +42,7 @@
 
     [dic setWordAsKnown:@"Name"];
     [dic setWordAsKnown:@"Hello"];
+
 //    [dic setWordAsKnown:@"Food"];
 
 
