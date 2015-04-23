@@ -17,5 +17,6 @@
 @property int numberOfWordsToChoose;
 
 -(void) startScene;
+-(void) clearDictionarySelection;
 
 @end

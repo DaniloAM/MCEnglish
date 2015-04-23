@@ -82,9 +82,7 @@
     for (UITouch *touch in touches) {
         SKNode *node = [self nodeAtPoint:[touch locationInNode:self.parent]];
         if ([[node name] isEqualToString:@"btnCancel"]) {
-            for (SKLabelNode *l in lblWords) {
-                [l setFontColor:[UIColor blackColor]];
-            }
+            [self clearDictionarySelection];
             return;
         }
         else if ([[node name] isEqualToString:@"btnConfirm"]) {
@@ -97,7 +95,7 @@
 
         SKLabelNode *lblNode = (SKLabelNode*)[self nodeAtPoint:[touch locationInNode:self.parent]];
         int index = [lblWords indexOfObject:node];
-        if (index >= 0 && index <= [lblWords count]) {
+        if (index >= 0 && index <= [lblWords count] && chosenWords < [self numberOfWordsToChoose]) {
             if (index >= 0 && index <= [[dictionary words] count]) {
                 if ([[[dictionary words] objectAtIndex:index] isKnown]) {
                     [lblNode setFontColor:[UIColor redColor]];
@@ -109,5 +107,14 @@
         }
     }
 }
+
+-(void) clearDictionarySelection{
+    chosenWords = 0;
+    for (SKLabelNode *lbl in lblWords) {
+        [lbl setFontColor:[UIColor blackColor]];
+    }
+}
+
+
 
 @end
