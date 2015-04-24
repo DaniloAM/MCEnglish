@@ -97,16 +97,30 @@ static const uint32_t bodyCategory =  0x1 << 2;
     
     //GENERATION TEST *********************
 
+    //CGPoint point[12];
     
-    generator = [[NPCGenerator alloc] initWithGenerationType:GTCityType spawnRate:1.0 inPosition:CGPointMake(-250, -227) atNode:[self background]];
+    //generator = [[NPCGenerator alloc] initWithGenerationType:GTCityType spawnRate:1.0 inPosition:CGPointMake(-250, -227) atNode:[self background]];
+    
+//    CGPoint points[5] = {
+//        CGPointMake(-250, -227),
+//        CGPointMake(0, 0),
+//        CGPointMake(0, 0),
+//        CGPointMake(0, 0),
+//        CGPointMake(0, 0)};
+    
+    CGPoint points[1] = {CGPointMake(-850, -227)};
+    
     
     NPCFile *file1 = [[NPCFile alloc] initWithTextureName:@"LightCharacter.png" andPictureName:@"LightCharacter.png" withGender:1];
     
     NPCFile *file2 = [[NPCFile alloc] initWithTextureName:@"DarkCharacter.png" andPictureName:@"DarkCharacter.png" withGender:0];
     
-    [generator addNPCFiles:@[file1, file2]];
     
-    [generator startGeneratingNPC];
+    generator = [[NPCGenerator alloc] init];
+    
+    [generator createGeneratorsWithType:GTCityType spawnRate:1.0 inPositions:points withNPCFiles:@[file1, file2] atNode:[self background] numberOfGenerators:1];
+    
+    [generator startGeneratingInAllGenerators];
     
     
     //Darker node
@@ -122,10 +136,11 @@ static const uint32_t bodyCategory =  0x1 << 2;
     
     [_textBox setFontColor:[UIColor whiteColor]];
     
+    [self checkSpawns];
+    
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-#warning Teste para a cena do restaurante, apagar depois
 //    [self.viewController showScene:@"RestaurantScene"];
     /* Called when a touch begins */
 
@@ -163,6 +178,10 @@ static const uint32_t bodyCategory =  0x1 << 2;
 
     /* Called before each frame is rendered */
     
+    if(_background.hasActions) {
+        [self checkSpawns];
+    }
+        
     if([[self character] zRotation] != 0.0) {
         [[self character] runAction:[SKAction rotateToAngle:0.0 duration:0.1]];
     }
@@ -244,9 +263,10 @@ static const uint32_t bodyCategory =  0x1 << 2;
 }
 
 -(void)chosenWord:(NSMutableArray *)words{
-#warning NSLog de teste apenas
     
     LineChain *chain = [[npcTalking chain] nextChainForKeys:words];
+    
+    [words removeAllObjects];
     
     if(!chain) {
         showDic = false;
@@ -333,6 +353,7 @@ static const uint32_t bodyCategory =  0x1 << 2;
     
     if(!isTalking) {
         
+        npcTalking = npc;
         isTalking = true;
         
         [self darkerScene];
@@ -353,8 +374,7 @@ static const uint32_t bodyCategory =  0x1 << 2;
     
     _textBox.text = [[npc chain] line];
     [[self textBox] setHidden:false];
-    
-    npcTalking = npc;
+
 }
 
 -(void)endNPCTalking {
@@ -366,6 +386,7 @@ static const uint32_t bodyCategory =  0x1 << 2;
     [self lighterScene];
     [self unpauseAllNPCs];
     
+    [npcTalking setPhysicsBody:nil];
     npcTalking = nil;
     
 }
@@ -384,7 +405,7 @@ static const uint32_t bodyCategory =  0x1 << 2;
 
 -(void)pauseAllNPCs {
     
-    [generator stopGenerating];
+    [generator stopGeneratingInAllGenerators];
     
     for(SKNode *npc in _background.npcArray) {
         [npc removeAllActions];
@@ -394,7 +415,7 @@ static const uint32_t bodyCategory =  0x1 << 2;
 
 -(void)unpauseAllNPCs {
     
-    [generator startGeneratingNPC];
+    [generator startGeneratingInAllGenerators];
     
     for(int x = 0; x < _background.npcArray.count; x++) {
         NPC *npc = (NPC *)[_background.npcArray objectAtIndex:x];
@@ -404,6 +425,15 @@ static const uint32_t bodyCategory =  0x1 << 2;
     }
     
 }
+
+-(void)checkSpawns {
+    
+    CGPoint point = [self convertPoint:self.position toNode:_background];
+    
+    [generator lockAllGeneratorsWhenVisibleForScenePosition:point andSceneSize:self.size];
+    
+}
+
 
 
 @end

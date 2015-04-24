@@ -46,12 +46,32 @@ static const uint32_t bodyCategory =  0x1 << 2;
     
 }
 
+-(BOOL)spawnPlaceIsVisibleForScenePosition: (CGPoint)position withSceneSize: (CGSize)sizeScene{
+
+    
+    int x1 = generatePosition.x - 40;
+    int x2 = x1 - sizeScene.width;
+    
+    int y1 = generatePosition.y - 40;
+    int y2 = y1 - sizeScene.height;
+    
+    if(position.x > x2 && position.x < x1) {
+        if(position.y > y2 && position.y < y2) {
+            return true;
+        }
+    }
+    
+    return false;
+}
+
 
 -(void)startGeneratingNPC {
     
-    //generatingStop = false;
+    generatingStop = false;
     
-    generateTimer = [NSTimer scheduledTimerWithTimeInterval:spawnRateInSeconds target:self selector:@selector(generateNewNPC) userInfo:nil repeats:true];
+    if(generateTimer == nil) {
+        generateTimer = [NSTimer scheduledTimerWithTimeInterval:spawnRateInSeconds target:self selector:@selector(generateNewNPC) userInfo:nil repeats:true];
+    }
     
     //[self performSelectorInBackground:@selector(generateNewNPC) withObject:nil];
 }
@@ -128,9 +148,125 @@ static const uint32_t bodyCategory =  0x1 << 2;
 }
 
 -(void)stopGenerating {
-    //generatingStop = true;
+    generatingStop = true;
     [generateTimer invalidate];
     generateTimer = nil;
 }
+
+-(void)createGeneratorsWithType:(NSInteger)type spawnRate:(float)spawn inPositions:(CGPoint *)positions withNPCFiles:(NSArray *)files atNode:(SKNode *)node numberOfGenerators: (NSInteger)number {
+    
+    NSMutableArray *array = [NSMutableArray array];
+    
+    for(int x = 0; x < number; x++) {
+        NPCGenerator *gen = [[NPCGenerator alloc] initWithGenerationType:type spawnRate:spawn inPosition:positions[x] atNode:node];
+        
+        [gen addNPCFiles:files];
+        
+        [array addObject:gen];
+    }
+    
+    generatorsArray = [NSMutableArray arrayWithArray:array];
+}
+
+
+-(void)startGeneratingInAllGenerators {
+    if(!generatorsArray) {
+        return;
+    }
+    
+    for(int x = 0; x < generatorsArray.count; x++) {
+        [[generatorsArray objectAtIndex:x] startGeneratingNPC];
+    }
+}
+
+
+-(void)stopGeneratingInAllGenerators {
+    if(!generatorsArray) {
+        return;
+    }
+    
+    for(int x = 0; x < generatorsArray.count; x++) {
+        [[generatorsArray objectAtIndex:x] stopGenerating];
+    }
+}
+
+-(void)lockAllGeneratorsWhenVisibleForScenePosition: (CGPoint)position andSceneSize: (CGSize)sizeScene{
+    
+    sceneSize = sizeScene;
+    scenePosition = position;
+    
+    //[self performSelectorInBackground:@selector(lockingForScenePositions) withObject:nil];
+    
+    [self lockingForScenePositions];
+    
+}
+
+
+
+-(BOOL)lockGeneratorWhenVisibleForScenePosition: (CGPoint)position andSceneSize: (CGSize)sizeScene {
+    
+    int x1 = self.generatePosition.x + 50;
+    int x2 = x1 - sizeScene.width - 50;
+    
+    int y1 = self.generatePosition.y + 50;
+    int y2 = y1 - sizeScene.height - 50;
+    
+    if(position.x > x2 && position.x < x1) {
+        if(position.y > y2 && position.y < y1) {
+            
+//            if([self isGenerating])
+//                [self stopGenerating];
+            
+            return true;
+        }
+    }
+    
+    return false;
+    
+//    if(!generateTimer) {
+//        [self startGeneratingNPC];
+//        [self performSelector:@selector(wtf) withObject:nil afterDelay:5.0];
+//    }
+    
+}
+
+
+
+-(void)lockingForScenePositions {
+    
+    for(int x = 0; x < generatorsArray.count; x++) {
+        
+        NPCGenerator *gen = [generatorsArray objectAtIndex:x];
+        
+        if([gen lockGeneratorWhenVisibleForScenePosition:scenePosition andSceneSize:sceneSize]) {
+            if([gen isGenerating]) {
+                [gen stopGenerating];
+            }
+        }
+        
+        else {
+            if(![gen isGenerating]) {
+                [gen startGeneratingNPC];
+            }
+        }
+    
+    }
+    
+}
+
+-(BOOL)isGenerating {
+    if(generateTimer) {
+        return true;
+    }
+    
+    else return false;
+}
+
+-(CGPoint)generatePosition {
+    return generatePosition;
+}
+
+
+
 
 @end

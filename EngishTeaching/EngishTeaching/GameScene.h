@@ -15,6 +15,7 @@
 
 @interface GameScene : SKScene <SKPhysicsContactDelegate , DictionaryDelegate> {
     NPCGenerator *generator;
+    NSMutableArray *generators;
     SKSpriteNode *darkerNode;
     BOOL isTalking;
     NPC *npcTalking;

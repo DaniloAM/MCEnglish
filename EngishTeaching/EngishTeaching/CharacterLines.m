@@ -29,7 +29,7 @@
 }
 
 -(NSString *)cityGreatInteraction {
-    return @"07(Good day.),(Hi.),(Hello. What’s up?),(What you need?) C01{[Help],[Food]} C01{[I],[Food]} C02{[Food][ANYKEY]} C03{[Help][ANYKEY]} C04{[YOU][NAME]} C05{[ANYKEY][ANYKEY]} |1(CALL:ShowRestaurant) |2(Food? What?)  C01{[Help],[Food]} C01{[I],[Food]} C02{[Food][ANYKEY]} C03{[Help][ANYKEY]} C04{[YOU][NAME]} C05{[ANYKEY][ANYKEY]} |3(Are you a foreigner?) C06{[YES]} |4(CALL:RandomName) |5(I don’t get it. Bye.) |6(Good luck here.)";
+    return @"07(Good day.),(Hi.),(Hello. What’s up?),(What you need?) C01{[Help],[Food]} C01{[I],[Food]} C02{[Food][ANYKEY]} C03{[Help][ANYKEY]} C04{[You][Name]} C05{[ANYKEY][ANYKEY]} |1(CALL:ShowRestaurant) |2(Food? What?)  C01{[Help],[Food]} C01{[I],[Food]} C02{[Food][ANYKEY]} C03{[Help][ANYKEY]} C04{[You][Name]} C05{[ANYKEY][ANYKEY]} |3(Are you a foreigner?) C06{[Yes]} |4(CALL:RandomName) |5(I don’t get it. Bye.) |6(Good luck here.)";
 }
 
 

@@ -93,7 +93,9 @@
             
             [self clearDictionarySelection];
             
-            [[self dictionaryDelegate] chosenWord:selectedWords];
+            [[self dictionaryDelegate] chosenWord:[NSMutableArray arrayWithArray:selectedWords]];
+            
+            [selectedWords removeAllObjects];
             return;
         }
 
