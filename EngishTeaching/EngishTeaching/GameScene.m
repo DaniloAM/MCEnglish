@@ -101,14 +101,14 @@ static const uint32_t bodyCategory =  0x1 << 2;
     
     //generator = [[NPCGenerator alloc] initWithGenerationType:GTCityType spawnRate:1.0 inPosition:CGPointMake(-250, -227) atNode:[self background]];
     
-//    CGPoint points[5] = {
-//        CGPointMake(-250, -227),
-//        CGPointMake(0, 0),
-//        CGPointMake(0, 0),
-//        CGPointMake(0, 0),
-//        CGPointMake(0, 0)};
     
-    CGPoint points[1] = {CGPointMake(-850, -227)};
+    CGPoint points[4] = {
+        CGPointMake(-250, -227),
+        CGPointMake(906, -305),
+        CGPointMake(-250, 1640),
+        CGPointMake(884, 1640)};
+    
+    //CGPoint points[1] = {CGPointMake(-850, -227)};
     
     
     NPCFile *file1 = [[NPCFile alloc] initWithTextureName:@"LightCharacter.png" andPictureName:@"LightCharacter.png" withGender:1];
@@ -118,7 +118,7 @@ static const uint32_t bodyCategory =  0x1 << 2;
     
     generator = [[NPCGenerator alloc] init];
     
-    [generator createGeneratorsWithType:GTCityType spawnRate:1.0 inPositions:points withNPCFiles:@[file1, file2] atNode:[self background] numberOfGenerators:1];
+    [generator createGeneratorsWithType:GTCityType spawnRate:3.5 inPositions:points withNPCFiles:@[file1, file2] atNode:[self background] numberOfGenerators:4];
     
     [generator startGeneratingInAllGenerators];
     
@@ -201,6 +201,13 @@ static const uint32_t bodyCategory =  0x1 << 2;
     else if ([nameB isEqualToString:@"restdoor"]){
         [self.viewController showScene:@"MiniGameScene"];
     }
+    
+    
+    if([nameA isEqualToString:@"npc"] && [nameB isEqualToString:@"npc"]) {
+        
+        [nodeA setPhysicsBody:nil];
+    }
+    
     
     if([nameA isEqualToString:@"npc"]) {
         
@@ -440,7 +447,7 @@ static const uint32_t bodyCategory =  0x1 << 2;
 -(void)checkSpawns {
     
     CGPoint point = [self convertPoint:self.position toNode:_background];
-    
+        
     [generator lockAllGeneratorsWhenVisibleForScenePosition:point andSceneSize:self.size];
     
 }

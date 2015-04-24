@@ -73,7 +73,6 @@ static const uint32_t bodyCategory =  0x1 << 2;
         generateTimer = [NSTimer scheduledTimerWithTimeInterval:spawnRateInSeconds target:self selector:@selector(generateNewNPC) userInfo:nil repeats:true];
     }
     
-    //[self performSelectorInBackground:@selector(generateNewNPC) withObject:nil];
 }
 
 
@@ -93,7 +92,7 @@ static const uint32_t bodyCategory =  0x1 << 2;
     
     if(generationType == GTCityType) {
         
-        if(percentualRandom <= 85) {
+        if(percentualRandom <= 65) {
             [new setCharacterType:CTNoInteraction];
             
         }
@@ -195,8 +194,6 @@ static const uint32_t bodyCategory =  0x1 << 2;
     sceneSize = sizeScene;
     scenePosition = position;
     
-    //[self performSelectorInBackground:@selector(lockingForScenePositions) withObject:nil];
-    
     [self lockingForScenePositions];
     
 }
@@ -213,20 +210,12 @@ static const uint32_t bodyCategory =  0x1 << 2;
     
     if(position.x > x2 && position.x < x1) {
         if(position.y > y2 && position.y < y1) {
-            
-//            if([self isGenerating])
-//                [self stopGenerating];
-            
+                        
             return true;
         }
     }
     
     return false;
-    
-//    if(!generateTimer) {
-//        [self startGeneratingNPC];
-//        [self performSelector:@selector(wtf) withObject:nil afterDelay:5.0];
-//    }
     
 }
 
