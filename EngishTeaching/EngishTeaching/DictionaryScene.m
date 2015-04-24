@@ -64,7 +64,7 @@
         [node setText:@""];
     }
 
-    selectedWords = [[NSMutableArray alloc] init];
+    selectedWords = [[NSMutabl  eArray alloc] init];
     chosenWords = 0;
 }
 
@@ -121,6 +121,7 @@
     for (SKLabelNode *lbl in lblWords) {
         [lbl setFontColor:[UIColor blackColor]];
     }
+    selectedWords = [[NSMutableArray alloc] init];
 }
 
 
