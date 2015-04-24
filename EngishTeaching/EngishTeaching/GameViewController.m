@@ -9,6 +9,7 @@
 #import "GameViewController.h"
 #import "GameScene.h"
 #import "RestaurantScene.h"
+#import "MiniGameScene.h"
 
 @implementation SKScene (Unarchive)
 
@@ -82,7 +83,17 @@
 -(void) showScene:(NSString*) sceneName{
         // Configure the view.
     SKView * skView = (SKView *)self.view;
- 
+
+    if ([sceneName isEqualToString:@"MiniGameScene"]) {
+        MiniGameScene * scene;
+        scene = [MiniGameScene unarchiveFromFile:sceneName];
+        scene.scaleMode = SKSceneScaleModeAspectFill;
+        [self setCurrentScene:scene];
+        [skView presentScene:scene];
+        return;
+    }
+
+
         // Create and configure the scene.
     GameScene *scene;
     scene = [GameScene unarchiveFromFile:sceneName];
@@ -100,6 +111,9 @@
     }
     else if ([sceneName isEqualToString:@"RestaurantScene"]) {
         scene = (GameScene*)[self restaurantScene];
+    }
+    else if ([sceneName isEqualToString:@"MinigameScene"]){
+            //sasasasaa
     }
 
         //Set the properties

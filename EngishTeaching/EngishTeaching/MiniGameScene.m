@@ -200,8 +200,8 @@
         for(int x = 0; x < [array count]; x++) {
             SKNode *node = [array objectAtIndex:x];
             
-            //NSLog(@"%@", node.name);
-            
+            NSLog(@"%@", node.name);
+
             if ([[node name] rangeOfString:@"table"].location == NSNotFound) {
                 
             }
@@ -235,6 +235,7 @@
                     NSLog(@"Correct!");
                     [self setFoodsOptions:[NSMutableArray array]];
                     [self randomizeNewOrder];
+                    break;
                 }
                 
                 

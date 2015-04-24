@@ -194,6 +194,13 @@ static const uint32_t bodyCategory =  0x1 << 2;
     
     NSString *nameA = [[[contact bodyA] node] name];
     NSString *nameB = [[[contact bodyB] node] name];
+
+    if ([nameA isEqualToString:@"restdoor"]) {
+        [self.viewController showScene:@"MiniGameScene"];
+    }
+    else if ([nameB isEqualToString:@"restdoor"]){
+        [self.viewController showScene:@"MiniGameScene"];
+    }
     
     if([nameA isEqualToString:@"npc"]) {
         
@@ -327,6 +334,10 @@ static const uint32_t bodyCategory =  0x1 << 2;
                 NPC *npc = (NPC *)node;
                 
                 [self startNPCTalking:npc];
+            }
+
+            if ([node.name isEqualToString:@"restdoor"]) {
+                notMove = false;
             }
         }
         

@@ -40,10 +40,9 @@
         return;
     }
 
+        //Set word as known
     dictionary = [Dictionary sharedStore];
-
     [dictionary setWordAsKnown:@"Name"];
-    [dictionary setWordAsKnown:@"Hello"];
 
 //    [dic setWordAsKnown:@"Food"];
 
