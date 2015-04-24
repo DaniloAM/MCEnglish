@@ -34,6 +34,20 @@
 		FFD0E30C1AE04921000BF544 /* CharacterLines.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD0E30B1AE04921000BF544 /* CharacterLines.m */; };
 		FFE484841AE1989B00A36336 /* LineChain.m in Sources */ = {isa = PBXBuildFile; fileRef = FFE484831AE1989B00A36336 /* LineChain.m */; };
 		FFE484871AE198C400A36336 /* LineKey.m in Sources */ = {isa = PBXBuildFile; fileRef = FFE484861AE198C400A36336 /* LineKey.m */; };
+		FFF24E921AEAB51A002FA567 /* MiniGameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF24E911AEAB51A002FA567 /* MiniGameScene.m */; };
+		FFF24E941AEAB526002FA567 /* MiniGameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FFF24E931AEAB526002FA567 /* MiniGameScene.sks */; };
+		FFF24EA21AEAB54E002FA567 /* Bread.png in Resources */ = {isa = PBXBuildFile; fileRef = FFF24E961AEAB54E002FA567 /* Bread.png */; };
+		FFF24EA31AEAB54E002FA567 /* Cheese.png in Resources */ = {isa = PBXBuildFile; fileRef = FFF24E971AEAB54E002FA567 /* Cheese.png */; };
+		FFF24EA41AEAB54E002FA567 /* Chicken.png in Resources */ = {isa = PBXBuildFile; fileRef = FFF24E981AEAB54E002FA567 /* Chicken.png */; };
+		FFF24EA51AEAB54E002FA567 /* French Fries.png in Resources */ = {isa = PBXBuildFile; fileRef = FFF24E991AEAB54E002FA567 /* French Fries.png */; };
+		FFF24EA61AEAB54E002FA567 /* Meat.png in Resources */ = {isa = PBXBuildFile; fileRef = FFF24E9A1AEAB54E002FA567 /* Meat.png */; };
+		FFF24EA71AEAB54E002FA567 /* Pasta.png in Resources */ = {isa = PBXBuildFile; fileRef = FFF24E9B1AEAB54E002FA567 /* Pasta.png */; };
+		FFF24EA81AEAB54E002FA567 /* Pizza.png in Resources */ = {isa = PBXBuildFile; fileRef = FFF24E9C1AEAB54E002FA567 /* Pizza.png */; };
+		FFF24EA91AEAB54E002FA567 /* Popcorn.png in Resources */ = {isa = PBXBuildFile; fileRef = FFF24E9D1AEAB54E002FA567 /* Popcorn.png */; };
+		FFF24EAA1AEAB54E002FA567 /* Potato.png in Resources */ = {isa = PBXBuildFile; fileRef = FFF24E9E1AEAB54E002FA567 /* Potato.png */; };
+		FFF24EAB1AEAB54E002FA567 /* Rice.png in Resources */ = {isa = PBXBuildFile; fileRef = FFF24E9F1AEAB54E002FA567 /* Rice.png */; };
+		FFF24EAC1AEAB54E002FA567 /* Salad.png in Resources */ = {isa = PBXBuildFile; fileRef = FFF24EA01AEAB54E002FA567 /* Salad.png */; };
+		FFF24EAD1AEAB54E002FA567 /* Sausage.png in Resources */ = {isa = PBXBuildFile; fileRef = FFF24EA11AEAB54E002FA567 /* Sausage.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,9 +72,9 @@
 		5BA7E0931AE03567003D2E3D /* Dictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dictionary.h; sourceTree = "<group>"; };
 		5BA7E0941AE03567003D2E3D /* Dictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dictionary.m; sourceTree = "<group>"; };
 		5BA7E0971AE042AC003D2E3D /* DictionaryDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictionaryDelegate.h; sourceTree = "<group>"; };
+		5BCA108F1AE978C300C36769 /* DictionaryScene2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = DictionaryScene2.sks; sourceTree = "<group>"; };
 		FF6A0F1D1AE9848100997B5E /* BackgroundNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundNode.h; sourceTree = "<group>"; };
 		FF6A0F1E1AE9848100997B5E /* BackgroundNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundNode.m; sourceTree = "<group>"; };
-		5BCA108F1AE978C300C36769 /* DictionaryScene2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = DictionaryScene2.sks; sourceTree = "<group>"; };
 		FF86DC3B1AE18788007AB12D /* NPCFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPCFile.h; sourceTree = "<group>"; };
 		FF86DC3C1AE18788007AB12D /* NPCFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPCFile.m; sourceTree = "<group>"; };
 		FFBAE7921AE81C3300D9206E /* LightCharacter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LightCharacter.png; sourceTree = "<group>"; };
@@ -93,6 +107,21 @@
 		FFE484831AE1989B00A36336 /* LineChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineChain.m; sourceTree = "<group>"; };
 		FFE484851AE198C400A36336 /* LineKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineKey.h; sourceTree = "<group>"; };
 		FFE484861AE198C400A36336 /* LineKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineKey.m; sourceTree = "<group>"; };
+		FFF24E901AEAB51A002FA567 /* MiniGameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiniGameScene.h; sourceTree = "<group>"; };
+		FFF24E911AEAB51A002FA567 /* MiniGameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MiniGameScene.m; sourceTree = "<group>"; };
+		FFF24E931AEAB526002FA567 /* MiniGameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MiniGameScene.sks; sourceTree = "<group>"; };
+		FFF24E961AEAB54E002FA567 /* Bread.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bread.png; sourceTree = "<group>"; };
+		FFF24E971AEAB54E002FA567 /* Cheese.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cheese.png; sourceTree = "<group>"; };
+		FFF24E981AEAB54E002FA567 /* Chicken.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Chicken.png; sourceTree = "<group>"; };
+		FFF24E991AEAB54E002FA567 /* French Fries.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "French Fries.png"; sourceTree = "<group>"; };
+		FFF24E9A1AEAB54E002FA567 /* Meat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Meat.png; sourceTree = "<group>"; };
+		FFF24E9B1AEAB54E002FA567 /* Pasta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pasta.png; sourceTree = "<group>"; };
+		FFF24E9C1AEAB54E002FA567 /* Pizza.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pizza.png; sourceTree = "<group>"; };
+		FFF24E9D1AEAB54E002FA567 /* Popcorn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Popcorn.png; sourceTree = "<group>"; };
+		FFF24E9E1AEAB54E002FA567 /* Potato.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Potato.png; sourceTree = "<group>"; };
+		FFF24E9F1AEAB54E002FA567 /* Rice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Rice.png; sourceTree = "<group>"; };
+		FFF24EA01AEAB54E002FA567 /* Salad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Salad.png; sourceTree = "<group>"; };
+		FFF24EA11AEAB54E002FA567 /* Sausage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sausage.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +145,7 @@
 		FFBAE7911AE81B2200D9206E /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				FFF24E951AEAB53E002FA567 /* Images */,
 				FFBAE7921AE81C3300D9206E /* LightCharacter.png */,
 			);
 			name = Sprites;
@@ -161,8 +191,11 @@
 				FFD0E2D21AE0255A000BF544 /* GameViewController.m */,
 				FFD0E2F61AE03007000BF544 /* GameScene.h */,
 				FFD0E2F71AE03007000BF544 /* GameScene.m */,
+				FFF24E901AEAB51A002FA567 /* MiniGameScene.h */,
+				FFF24E911AEAB51A002FA567 /* MiniGameScene.m */,
 				FF6A0F1D1AE9848100997B5E /* BackgroundNode.h */,
 				FF6A0F1E1AE9848100997B5E /* BackgroundNode.m */,
+				FFF24E931AEAB526002FA567 /* MiniGameScene.sks */,
 				FFD0E2F81AE03007000BF544 /* GameScene.sks */,
 				FFD0E2F51AE03007000BF544 /* MissingResource.png */,
 				5BCA108F1AE978C300C36769 /* DictionaryScene2.sks */,
@@ -211,6 +244,25 @@
 				FFD0E2E51AE0255A000BF544 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FFF24E951AEAB53E002FA567 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				FFF24E961AEAB54E002FA567 /* Bread.png */,
+				FFF24E971AEAB54E002FA567 /* Cheese.png */,
+				FFF24E981AEAB54E002FA567 /* Chicken.png */,
+				FFF24E991AEAB54E002FA567 /* French Fries.png */,
+				FFF24E9A1AEAB54E002FA567 /* Meat.png */,
+				FFF24E9B1AEAB54E002FA567 /* Pasta.png */,
+				FFF24E9C1AEAB54E002FA567 /* Pizza.png */,
+				FFF24E9D1AEAB54E002FA567 /* Popcorn.png */,
+				FFF24E9E1AEAB54E002FA567 /* Potato.png */,
+				FFF24E9F1AEAB54E002FA567 /* Rice.png */,
+				FFF24EA01AEAB54E002FA567 /* Salad.png */,
+				FFF24EA11AEAB54E002FA567 /* Sausage.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,15 +348,28 @@
 			files = (
 				FFD0E2F91AE03007000BF544 /* MissingResource.png in Resources */,
 				FFD0E2FB1AE03007000BF544 /* GameScene.sks in Resources */,
+				FFF24EA81AEAB54E002FA567 /* Pizza.png in Resources */,
+				FFF24EA51AEAB54E002FA567 /* French Fries.png in Resources */,
+				FFF24EA71AEAB54E002FA567 /* Pasta.png in Resources */,
 				FFBAE7931AE81C3300D9206E /* LightCharacter.png in Resources */,
 				FFD0E2DB1AE0255A000BF544 /* LaunchScreen.xib in Resources */,
+				FFF24EAD1AEAB54E002FA567 /* Sausage.png in Resources */,
 				FFD0E2D81AE0255A000BF544 /* Images.xcassets in Resources */,
+				FFF24E941AEAB526002FA567 /* MiniGameScene.sks in Resources */,
 				FFD0E2D61AE0255A000BF544 /* Main.storyboard in Resources */,
 				5B9B85B61AE812B600940944 /* RestaurantScene.sks in Resources */,
 				FFD0E2FD1AE03027000BF544 /* DarkCharacter.png in Resources */,
+				FFF24EAC1AEAB54E002FA567 /* Salad.png in Resources */,
+				FFF24EAB1AEAB54E002FA567 /* Rice.png in Resources */,
+				FFF24EA41AEAB54E002FA567 /* Chicken.png in Resources */,
 				5BA7E08F1AE03443003D2E3D /* DictionaryScene.sks in Resources */,
 				FFD0E2FF1AE0302F000BF544 /* TemplateCidade.001.png in Resources */,
+				FFF24EAA1AEAB54E002FA567 /* Potato.png in Resources */,
+				FFF24EA91AEAB54E002FA567 /* Popcorn.png in Resources */,
+				FFF24EA61AEAB54E002FA567 /* Meat.png in Resources */,
 				5BCA10901AE978C300C36769 /* DictionaryScene2.sks in Resources */,
+				FFF24EA31AEAB54E002FA567 /* Cheese.png in Resources */,
+				FFF24EA21AEAB54E002FA567 /* Bread.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +402,7 @@
 				FFD0E2C81AE0255A000BF544 /* main.m in Sources */,
 				FFD0E3081AE03E77000BF544 /* NPCGenerator.m in Sources */,
 				5BA7E0951AE03567003D2E3D /* Word.m in Sources */,
+				FFF24E921AEAB51A002FA567 /* MiniGameScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
